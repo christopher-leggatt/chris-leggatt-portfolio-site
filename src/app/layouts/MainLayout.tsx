@@ -7,7 +7,7 @@ import Head from "next/head";
 import NavMenu from "@/app/components/NavMenu/NavMenu";
 import { PageTransition } from "@/app/components/PageTransition/PageTransition";
 import { PageType } from "@/app/lib/types";
-import siteMetadata from "@/app/data/siteMetadata";
+import { siteMetadata } from "@/app/data/siteMetadata";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
