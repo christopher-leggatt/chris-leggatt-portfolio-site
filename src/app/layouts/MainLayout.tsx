@@ -86,7 +86,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
         </Box>
 
         <VStack spacing={8} position="relative" zIndex="docked">
-          <PageTransition>{children}</PageTransition>
+          {/* <PageTransition>{children}</PageTransition> */}
           <Footer />
         </VStack>
 
