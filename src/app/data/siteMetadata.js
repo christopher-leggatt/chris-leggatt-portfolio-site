@@ -1,4 +1,4 @@
-const siteMetadata = {
+export const siteMetadata = {
   title: 'Chris Leggatt – full-stack engineer, creative developer.',
   author: 'Chris Leggatt',
   headerTitle: "Chris' Portfolio",
@@ -8,7 +8,7 @@ const siteMetadata = {
   siteUrl: 'https://chrisleggattdev.ca',
   siteRepo: 'https://github.com/christopher-leggatt/chris-leggatt-portfolio-site',
   avatarImage:
-    '/assets/images/chris_leggatt_portfolio_site_pic.jpg',
+    '/chris_leggatt_portfolio_site_pic.jpg',
   email: 'mailto:cleggattdev@gmail.com',
   github: 'https://github.com/christopher-leggatt',
   codepen: 'https://codepen.io/cleggattdev',
@@ -20,4 +20,3 @@ const siteMetadata = {
   }
 };
 
-module.exports = siteMetadata;
