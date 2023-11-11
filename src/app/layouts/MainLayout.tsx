@@ -4,7 +4,7 @@ import TopRays from "@/app/assets/images/portfolio_header_bg.png";
 import BottomRays from "@/app/assets/images/portfolio_footer_bg.png";
 import Footer from "@/app/components/Footer/Footer";
 import Head from "next/head";
-import NavMenu from "@/app/components/NavMenu/NavMenu";
+import NavMenu from "@/app/components/NavMenu";
 import { PageTransition } from "@/app/components/PageTransition/PageTransition";
 import { PageType } from "@/app/lib/types";
 import { siteMetadata } from "@/app/data/siteMetadata";
