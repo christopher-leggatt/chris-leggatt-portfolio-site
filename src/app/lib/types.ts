@@ -1,9 +1,10 @@
 export enum PageType {
-    WEBSITE = 'website'
-  }
+  WEBSITE = "website",
+}
 
-  export enum ButtonType {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-    TERTIARY = 'tertiary'
-  }
+export enum ButtonType {
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+  TERTIARY = "tertiary",
+}
+
