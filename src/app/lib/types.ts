@@ -13,8 +13,3 @@ export enum ButtonType {
 export type CustomMeta = {
   title?: string;
 };
-
-export type MainLayoutProps = {
-  children: ReactNode;
-  customMeta?: CustomMeta;
-};

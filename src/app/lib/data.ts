@@ -1,3 +1,5 @@
+import { SoftwareItem, TechStackItem } from "./interfaces";
+
 export const timelineData = [
   {
     title: "test",
@@ -6,4 +8,12 @@ export const timelineData = [
     duration: "test company duration",
     description: "test decription",
   },
+];
+
+export const softwareData: SoftwareItem[] = [
+  { url: "", title: "", types: ['', ''], description: "" },
+];
+
+export const techStackData: TechStackItem[] = [
+  { url: "", title: "", types: ['', ''], description: "" },
 ];
