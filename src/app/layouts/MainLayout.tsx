@@ -6,12 +6,12 @@ import Footer from "@/app/components/Footer/Footer";
 import Head from "next/head";
 import NavMenu from "@/app/components/NavMenu";
 import { PageTransition } from "@/app/components/PageTransition/PageTransition";
-import { PageType } from "@/app/lib/types";
+import { PageType, MainLayoutProps, CustomMeta } from "@/app/lib/types";
 import { siteMetadata } from "@/app/data/siteMetadata";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-const MainLayout = ({ children }: { children: ReactNode }) => {  
+const MainLayout = ({ children, customMeta = {} }: MainLayoutProps) => {  
   const router = useRouter();
   const bgColor = useColorModeValue("white", "dark");
   const color = useColorModeValue("black", "white");
@@ -23,7 +23,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
     type: PageType.WEBSITE,
     canonicalUrl: `${siteMetadata.siteUrl}${router.asPath}`,
     date: null,
-    isArticle: false,
+    ...customMeta
   };
 
   return (
