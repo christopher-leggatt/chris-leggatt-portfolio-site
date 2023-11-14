@@ -2,7 +2,6 @@ import {
   Box,
   Heading,
   Text,
-  Link,
   SimpleGrid,
   VStack,
   HStack,
@@ -10,6 +9,7 @@ import {
 import MainLayout from "@/app/layouts/MainLayout";
 import { softwareData, techStackData } from "@/app/lib/data";
 import { ToolboxProps } from "@/app/lib/interfaces";
+import PopoverLink from "@/app/components/PopoverLink";
 
 const Toolbox: React.FC<ToolboxProps> = ({
   software = softwareData,
@@ -51,9 +51,9 @@ const Toolbox: React.FC<ToolboxProps> = ({
                 </HStack>
                 <Text mt={4}>{item.description}</Text>
                 {item.url && (
-                  <Link href={item.url} color="blue.500">
+                  <PopoverLink href={item.url}>
                     Check it out
-                  </Link>
+                  </PopoverLink>
                 )}
               </Box>
             ))}
@@ -79,9 +79,9 @@ const Toolbox: React.FC<ToolboxProps> = ({
                 </HStack>
                 <Text mt={4}>{item.description}</Text>
                 {item.url && (
-                  <Link href={item.url} color="blue.500">
+                  <PopoverLink href={item.url}>
                     Check it out
-                  </Link>
+                  </PopoverLink>
                 )}
               </Box>
             ))}

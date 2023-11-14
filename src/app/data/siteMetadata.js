@@ -13,6 +13,7 @@ export const siteMetadata = {
   github: 'https://github.com/christopher-leggatt',
   codepen: 'https://codepen.io/cleggattdev',
   linkedin: 'https://www.linkedin.com/in/christopherjamesleggatt/',
+  capstone: 'https://bkgbgxhzfw.us-east-2.awsapprunner.com/',
   resume: '/static/christopher_leggatt_resume.pdf',
   locale: 'en-US',
   analytics: {
