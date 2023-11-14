@@ -16,6 +16,7 @@ import MainLayout from "@/app/layouts/MainLayout";
 import { siteMetadata } from "@/app/data/siteMetadata";
 import { useRouter } from "next/router";
 import { TimelineItem, TimelineList } from "./Timeline";
+import PopoverLink from "@/app/components/PopoverLink";
 
 const About = () => {
   const router = useRouter();
@@ -30,7 +31,7 @@ const About = () => {
           Here&apos;s my story.
         </Heading>
         <Text fontSize="lg">
-          I&apos;m Chris, a full stack developer, creative coder, and lifelong
+          I&apos;m Chris, a full stack developer, <PopoverLink href={siteMetadata.codepen}>creative coder</PopoverLink>, and lifelong
           learner who decided to take a new life path from automotive
           manufacturing and quality control. My mission is to translate
           user-focussed designs into pixel-perfect websites/applications while
@@ -39,9 +40,9 @@ const About = () => {
         <Text fontSize="lg">
           I began my tech journey last year with online modules and quickly
           developed a passion for the worlds that coding can create, Now, having
-          graduated BRAINSTATION'S Software Engineering course, I&apos;m
+          graduated BrainStation's Software Engineering course, I&apos;m
           #opentowork and hitting the ground running, developing new
-          projects/collaborations, learning new languages and connecting with
+          <PopoverLink href='/projects'>projects/collaborations</PopoverLink>, learning new languages and connecting with
           new people in this newfound space.
         </Text>
       </VStack>
