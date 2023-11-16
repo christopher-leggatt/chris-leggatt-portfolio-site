@@ -8,5 +8,6 @@ export const customMetadata = {
   capstone: "https://bkgbgxhzfw.us-east-2.awsapprunner.com/",
   resume: "/static/christopher_leggatt_resume.pdf",
   avatarUrl: "/chris_leggatt_portfolio_site_pic.jpg",
+  author: 'Chris Leggatt'
 
 }

@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { Box, Container, useColorModeValue, VStack } from "@chakra-ui/react";
 import TopRays from "@/app/assets/images/portfolio_header_bg.png";
 import BottomRays from "@/app/assets/images/portfolio_footer_bg.png";
-import Footer from "@/app/components/Footer/Footer";
+import Footer from "@/app/components/Footer";
 import NavMenu from "@/app/components/NavMenu";
 import { PageTransition } from "@/app/components/PageTransition/PageTransition";
 import Image from "next/image";

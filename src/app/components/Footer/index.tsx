@@ -7,7 +7,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { siteMetadata } from "@/app/data/metadata";
+import { customMetadata } from "@/app/data/metadata";
 import { navigation } from "./FooterUtils";
 
 const Footer = () => {
@@ -78,7 +78,7 @@ const Footer = () => {
                 </NextLink>
               ))}
               <ChakraLink
-                href={siteMetadata.resume}
+                href={customMetadata.resume}
                 isExternal
                 fontSize="base"
                 _hover={{ textDecoration: "underline" }}
@@ -109,7 +109,7 @@ const Footer = () => {
               ))}
             </HStack>
             <Text fontSize="base">
-              &copy; {new Date().getFullYear()} {siteMetadata.author}
+              &copy; {new Date().getFullYear()} {customMetadata.author}
             </Text>
           </HStack>
         </VStack>
