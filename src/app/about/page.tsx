@@ -10,19 +10,21 @@ import {
   Image,
 } from "@chakra-ui/react";
 import Button from "@/app/components/Button";
-import { ButtonType } from "@/app/lib/types";
 import { timelineData } from "@/app/lib/data";
-import MainLayout from "@/app/layouts/MainLayout";
-import { siteMetadata } from "@/app/data/siteMetadata";
+import { customMetadata } from "@/app/data/metadata";
 import { useRouter } from "next/router";
 import { TimelineItem, TimelineList } from "./Timeline";
 import PopoverLink from "@/app/components/PopoverLink";
+
+export const metadata = {
+  title: 'About',
+}
 
 const About = () => {
   const router = useRouter();
 
   return (
-    <MainLayout customMeta={{ title: "About Me - Chris Leggatt" }}>
+    <>
       <VStack spacing={4} textAlign="center">
         <Heading as="h1" size="lg" color="indigo.500" textTransform="uppercase">
           About me
@@ -31,19 +33,24 @@ const About = () => {
           Here&apos;s my story.
         </Heading>
         <Text fontSize="lg">
-          I&apos;m Chris, a full stack developer, <PopoverLink href={siteMetadata.codepen}>creative coder</PopoverLink>, and lifelong
-          learner who decided to take a new life path from automotive
-          manufacturing and quality control. My mission is to translate
-          user-focussed designs into pixel-perfect websites/applications while
-          adding to my repertoire of software disciplines.
+          I&apos;m Chris, a full stack developer,{" "}
+          <PopoverLink href={customMetadata.codepen}>
+            creative coder
+          </PopoverLink>
+          , and lifelong learner who decided to take a new life path from
+          automotive manufacturing and quality control. My mission is to
+          translate user-focussed designs into pixel-perfect
+          websites/applications while adding to my repertoire of software
+          disciplines.
         </Text>
         <Text fontSize="lg">
           I began my tech journey last year with online modules and quickly
           developed a passion for the worlds that coding can create, Now, having
           graduated BrainStation's Software Engineering course, I&apos;m
           #opentowork and hitting the ground running, developing new
-          <PopoverLink href='/projects'>projects/collaborations</PopoverLink>, learning new languages and connecting with
-          new people in this newfound space.
+          <PopoverLink href="/projects">projects/collaborations</PopoverLink>,
+          learning new languages and connecting with new people in this newfound
+          space.
         </Text>
       </VStack>
 
@@ -104,7 +111,7 @@ const About = () => {
         )}
         <Button
           buttonType={ButtonType.PRIMARY}
-          onButtonClick={() => router.push(siteMetadata.resume)}
+          onButtonClick={() => router.push(customMetadata.resume)}
         >
           View my resume
         </Button>
@@ -138,7 +145,7 @@ const About = () => {
           />
         </GridItem>
       </Grid>
-    </MainLayout>
+    </>
   );
 };
 

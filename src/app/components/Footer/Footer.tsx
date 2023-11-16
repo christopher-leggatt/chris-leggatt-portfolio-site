@@ -7,7 +7,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { siteMetadata } from "@/app/data/siteMetadata";
+import { siteMetadata } from "@/app/data/metadata";
 import { navigation } from "./FooterUtils";
 
 const Footer = () => {

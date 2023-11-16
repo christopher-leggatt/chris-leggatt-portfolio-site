@@ -1,23 +1,23 @@
-export interface NavLinkProps {
+interface NavLinkProps {
   href: string;
   text: string;
 }
 
-export interface SoftwareItem {
+interface SoftwareItem {
   url: string;
   title: string;
   types: string[];
   description: string;
 }
 
-export interface TechStackItem {
+interface TechStackItem {
   url: string;
   title: string;
   types: string[];
   description: string;
 }
 
-export interface ToolboxProps {
+interface ToolboxProps {
   software?: SoftwareItem[];
   techStack?: TechStackItem[];
 }

@@ -1,5 +1,3 @@
-import { SoftwareItem, TechStackItem } from "./interfaces";
-
 export const timelineData = [
   {
     title: "test",

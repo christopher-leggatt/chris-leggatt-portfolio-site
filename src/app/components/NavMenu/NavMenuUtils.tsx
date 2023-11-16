@@ -1,6 +1,6 @@
 import { Link as ChakraLink } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { NavLinkProps } from "@/app/lib/interfaces";
+import { NavLinkProps } from "@/app/interfaces";
 import { useRouter } from "next/router";
 
 export const linksArray = [

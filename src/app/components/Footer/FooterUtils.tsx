@@ -1,4 +1,4 @@
-import { siteMetadata } from "@/app/data/siteMetadata";
+import { siteMetadata } from "@/app/data/metadata";
 import { FiGithub as Github, FiCodepen as Codepen } from "react-icons/fi";
 import { AiOutlineLinkedin as Linkedin } from "react-icons/ai";
 

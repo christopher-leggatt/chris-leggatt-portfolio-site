@@ -1,95 +1,79 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import {
+  Button as ChakraButton,
+  Box,
+  Text,
+  Avatar,
+  VStack,
+  HStack,
+  Center,
+} from "@chakra-ui/react";
+import Divider from "@/app/components/icons/Divider";
+// import { GetStaticProps } from 'next';
+import { customMetadata } from "./data/metadata";
+import { useRouter } from "next/router";
 
-export default function Home() {
+export const metadata = {
+  title: "Home",
+};
+
+const Home = () => {
+  const { push } = useRouter();
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Box>
+      <VStack spacing={6} textAlign="center" align="start">
+        <Box
+          display={{ md: "grid" }}
+          gridTemplateColumns={{ md: "repeat(6, 1fr)" }}
+          alignItems="center"
+          mt={{ base: 12, md: 24 }}
+        >
+          <Text
+            as="h1"
+            fontSize={{ base: "4xl", sm: "5xl" }}
+            fontWeight="bold"
+            gridColumn={{ md: "span 5 / span 5" }}
+            order={{ md: 1 }}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+            I&apos;m{" "}
+            <Text as="span" color="teal.500">
+              Chris
+            </Text>
+            a dedicated and passionate software engineer, with a background in
+            quality control.
+          </Text>
+          <Box order={{ md: 2 }}>
+            <Avatar
+              name="Chris Leggatt"
+              borderRadius="full"
+              boxSize="160px"
+              src={customMetadata.avatarUrl}
             />
-          </a>
-        </div>
-      </div>
+          </Box>
+        </Box>
+        <HStack spacing={4}>
+          <ChakraButton
+            colorScheme="teal"
+            variant="solid"
+            onClick={() => push("/resume")}
+          >
+            My resume
+          </ChakraButton>
+          <ChakraButton
+            colorScheme="gray"
+            variant="outline"
+            onClick={() => push("/about")}
+          >
+            More about me
+          </ChakraButton>
+        </HStack>
+      </VStack>
+      <Center>
+        <Divider />
+      </Center>
+      <Box my={16} />
+      <Box mt={16}>{/* Additional content goes here */}</Box>
+    </Box>
+  );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Home;
