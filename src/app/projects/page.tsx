@@ -6,13 +6,16 @@ import {
   Image,
   SimpleGrid,
 } from "@chakra-ui/react";
-import MainLayout from "@/app/layouts/MainLayout";
 import ButtonLink from "./ButtonLink";
 import { useColorModeValue } from "@chakra-ui/react";
 
+export const metadata = {
+  title: "Projects",
+};
+
 const Projects: React.FC = () => {
   return (
-    <MainLayout title="Projects - Braydon Coyer">
+    <>
       <VStack spacing={4} textAlign="center">
         <Heading
           as="h1"
@@ -78,7 +81,7 @@ const Projects: React.FC = () => {
           </SimpleGrid>
         </Box>
       </VStack>
-    </MainLayout>
+    </>
   );
 };
 

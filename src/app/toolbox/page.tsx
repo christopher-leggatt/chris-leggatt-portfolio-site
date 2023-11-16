@@ -6,17 +6,18 @@ import {
   VStack,
   HStack,
 } from "@chakra-ui/react";
-import MainLayout from "@/app/layouts/MainLayout";
 import { softwareData, techStackData } from "@/app/lib/data";
-import { ToolboxProps } from "@/app/lib/interfaces";
 import PopoverLink from "@/app/components/PopoverLink";
+
+export const metadata = {
+  title: "Home",
+};
 
 const Toolbox: React.FC<ToolboxProps> = ({
   software = softwareData,
   techStack = techStackData,
 }) => {
   return (
-    <MainLayout>
       <VStack spacing={24}>
         <Box textAlign="center">
           <Heading
@@ -88,7 +89,6 @@ const Toolbox: React.FC<ToolboxProps> = ({
           </SimpleGrid>
         </VStack>
       </VStack>
-    </MainLayout>
   );
 };
 

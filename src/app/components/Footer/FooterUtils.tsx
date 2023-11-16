@@ -1,4 +1,4 @@
-import { siteMetadata } from "@/app/data/siteMetadata";
+import { customMetadata } from "@/app/data/metadata";
 import { FiGithub as Github, FiCodepen as Codepen } from "react-icons/fi";
 import { AiOutlineLinkedin as Linkedin } from "react-icons/ai";
 
@@ -21,17 +21,17 @@ export const navigation = {
   social: [
     {
       name: "LinkedIn",
-      href: siteMetadata.linkedin,
+      href: customMetadata.linkedin,
       icon: <Linkedin />,
     },
     {
       name: "Github",
-      href: siteMetadata.github,
+      href: customMetadata.github,
       icon: <Github />,
     },
     {
       name: "Codepen",
-      href: siteMetadata.codepen,
+      href: customMetadata.codepen,
       icon: <Codepen />,
     },
   ],
