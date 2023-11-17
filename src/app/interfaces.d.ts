@@ -1,3 +1,5 @@
+import { ReactNode, ReactElement } from "react";
+
 interface NavLinkProps {
   href: string;
   text: string;
@@ -20,4 +22,17 @@ interface TechStackItem {
 interface ToolboxProps {
   software?: SoftwareItem[];
   techStack?: TechStackItem[];
+}
+
+interface FooterNavLink {
+  name: string;
+  href: string;
+  icon?: ReactElement;
+}
+
+interface FooterNavigation {
+  general: FooterNavLink[];
+  specifics: FooterNavLink[];
+  extra: FooterNavLink[];
+  social: FooterNavLink[];
 }

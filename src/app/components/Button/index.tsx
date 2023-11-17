@@ -2,7 +2,6 @@ import {
   Button as ChakraButton,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { ButtonType } from "@/app/types";
 import { ReactNode } from "react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 
