@@ -1,0 +1,80 @@
+[
+    {
+        "id": "1",
+        "name": "Brad Traversy",
+        "link": "https://www.youtube.com/user/TechGuyWeb",
+        "checked": false
+    },
+    {
+        "id": "2",
+        "name": "Shaun Pelling",
+        "link": "https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg",
+        "checked": false
+    },
+    {
+        "id": "3",
+        "name": "Maximilian Schwarzmüller",
+        "link": "https://www.youtube.com/channel/UCSJbGtTlrDami-tDGPUV9-w",
+        "checked": false
+    },
+    {
+        "id": "4",
+        "name": "Simo Edwin",
+        "link": "https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q",
+        "checked": false
+    },
+    {
+        "id": "5",
+        "name": "Kyle Cook",
+        "link": "https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw",
+        "checked": false
+    },
+    {
+        "id": "6",
+        "name": "Jeff Delaney",
+        "link": "https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA",
+        "checked": false
+    },
+    {
+        "id": "7",
+        "name": "Mosh Hamedani",
+        "link": "https://www.youtube.com/user/programmingwithmosh",
+        "checked": false
+    },
+    {
+        "id": "8",
+        "name": "Rafeh Qazi",
+        "link": "https://www.youtube.com/c/CleverProgrammer",
+        "checked": false
+    },
+    {
+        "id": "9",
+        "name": "Quincy Larson",
+        "link": "https://www.youtube.com/c/Freecodecamp",
+        "checked": false
+    },
+    {
+        "id": "10",
+        "name": "Evan G.",
+        "link": "https://www.youtube.com/channel/UC0e3QhIYukixgh5VVpKHH9Q",
+        "checked": false
+    },
+    {
+        "id": "11",
+        "name": "Wes Bos",
+        "link": "https://www.youtube.com/@DaveGrayTeachesCode",
+        "checked": false
+    },
+    {
+        "id": "12",
+        "name": "Jess Chan",
+        "link": "https://www.youtube.com/@TheCoderCoder",
+        "checked": false
+    },
+    {
+        "id": "13",
+        "name": "Tiffany Jantzen",
+        "link": "https://www.youtube.com/@TiffInTech",
+        "checked": false
+    }
+]
