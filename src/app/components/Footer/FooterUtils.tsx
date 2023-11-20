@@ -56,7 +56,7 @@ export const LinkGroup = ({ title, array }: LinkGroupProps) => {
           </ChakraLink>
         </NextLink>
       ))}
-      {title === "extra" && (
+      {/* {title === "extra" && (
         <ChakraLink
           href={customMetadata.resume}
           isExternal
@@ -65,7 +65,7 @@ export const LinkGroup = ({ title, array }: LinkGroupProps) => {
         >
           Resume
         </ChakraLink>
-      )}
+      )} */}
     </VStack>
   );
 };
