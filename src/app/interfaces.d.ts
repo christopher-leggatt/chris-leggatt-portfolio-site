@@ -36,3 +36,14 @@ interface FooterNavigation {
   extra: FooterNavLink[];
   social: FooterNavLink[];
 }
+
+interface ChangelogItem {
+  title: string;
+  date: string; 
+  description: string;
+}
+
+interface ChangelogProps {
+  completedItems: ChangelogItem[];
+  activeItems: ChangelogItem[];
+}
