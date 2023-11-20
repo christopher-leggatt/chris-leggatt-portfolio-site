@@ -39,11 +39,22 @@ interface FooterNavigation {
 
 interface ChangelogItem {
   title: string;
-  date: string; 
+  date: string;
   description: string;
 }
 
 interface ChangelogProps {
   completedItems: ChangelogItem[];
   activeItems: ChangelogItem[];
+}
+
+interface MeetupItemProps {
+  id?: string;
+  name?: string;
+  link: string;
+  checked: boolean;
+}
+
+interface MeetupProps {
+  meetupContent: MeetupItemProps[];
 }
