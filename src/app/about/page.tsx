@@ -13,7 +13,7 @@ import Button from "@/app/components/Button";
 import { timelineData } from "@/app/lib/data";
 import { customMetadata } from "@/app/data/metadata";
 import { useRouter } from "next/router";
-import { TimelineItem, TimelineList } from "./Timeline";
+import { TimelineItem, TimelineList } from "../components/Timeline/Timeline";
 import PopoverLink from "@/app/components/PopoverLink";
 
 export const metadata = {
