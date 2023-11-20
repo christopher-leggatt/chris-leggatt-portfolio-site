@@ -4,11 +4,10 @@ import TopRays from "@/app/assets/images/portfolio_header_bg.png";
 import BottomRays from "@/app/assets/images/portfolio_footer_bg.png";
 import Footer from "@/app/components/Footer";
 import NavMenu from "@/app/components/NavMenu";
-import { PageTransition } from "@/app/components/PageTransition/PageTransition";
+import PageTransition from "@/app/components/PageTransition";
 import Image from "next/image";
 import { Providers } from "./providers";
 import { Metadata } from "next";
-
 
 export const metadata: Metadata = {
   title: {
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     languages: {
       "en-US": "/en-US",
     },
-  },  
+  },
 };
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
@@ -88,7 +87,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
               </Box>
 
               <VStack spacing={8} position="relative" zIndex="docked">
-                {/* <PageTransition>{children}</PageTransition> */}
+                <PageTransition>{children}</PageTransition>
                 <Footer />
               </VStack>
 
