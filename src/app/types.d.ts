@@ -9,3 +9,8 @@ type LinkGroupProps = {
   title: string; 
   array: FooterNavLink[];
 };
+
+type ProjectButtonLinkProps = {
+  text: string;
+  href: string;
+};

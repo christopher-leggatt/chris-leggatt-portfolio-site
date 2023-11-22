@@ -1,7 +1,6 @@
-import { Link as ChakraLink } from "@chakra-ui/react";
-import NextLink from "next/link";
+import Link from "next/link";
 import { NavLinkProps } from "@/app/interfaces";
-import { useRouter } from "next/router";
+import { useRouter, usePathname } from "next/navigation";
 
 export const linksArray = [
   { href: "/", text: "Home" },
@@ -14,28 +13,19 @@ export const linksArray = [
 
 export const NavLink: React.FC<NavLinkProps> = ({ href, text }) => {
   const router = useRouter();
-  const isActive = router.asPath === href;
+  const pathname = usePathname();
+  const isActive = pathname === href;
 
   return (
-    <NextLink href={href} passHref>
-      <ChakraLink
-        fontWeight={isActive ? "bold" : "normal"}
-        color={isActive ? "teal.500" : "gray.500"}
-        _hover={{
-          color: "gray.900",
-          textDecoration: "none",
-        }}
-        _dark={{
-          color: isActive ? "teal.400" : "gray.400",
-          _hover: {
-            color: "gray.200",
-          },
-        }}
-        display={{ base: "none", md: "inline-block" }}
-        borderRadius="full"
-      >
-        {text}
-      </ChakraLink>
-    </NextLink>
-  );
+    <Link href={href} passHref>
+    <span
+      className={`${
+        isActive
+          ? 'font-bold text-teal-500 dark:text-teal-400'
+          : 'font-normal text-gray-500 dark:text-gray-400'
+      } 'hidden md:inline-block rounded-full hover:text-gray-900 dark:hover:text-gray-200 transition-all`}
+    >
+      {text}
+    </span>
+  </Link>  );
 };

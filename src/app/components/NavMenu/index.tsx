@@ -1,157 +1,85 @@
-import {
-  Box,
-  Flex,
-  IconButton,
-  useColorMode,
-  useDisclosure,
-  Link as ChakraLink,
-  VStack,
-  Button,
-} from "@chakra-ui/react";
-import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import Link from "next/link";
-import DarkLogo from "@/app/assets/logo/portfolio_logo_dark.svg";
-import LightLogo from "@/app/assets/logo/portfolio_logo_light.svg";
+import LightLogo from '@/app/assets/logo/portfolio_logo_light.svg'
+import DarkLogo from '@/app/assets/logo/portfolio_logo_dark.svg'
 import { NavLink, linksArray } from "./NavMenuUtils";
+import { Sun } from "@/app/components/icons/Sun";
+import { Moon } from "@/app/components/icons/Moon";
+import { Hamburger } from "@/app/components/icons/Hamburger";
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from "react";
+
 
 const NavMenu = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { colorMode, toggleColorMode } = useColorMode();
+  const [mounted, setMounted] = useState(false);
+  let [isOpen, setIsOpen] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
 
   return (
-    <Box
-      position="fixed"
-      w="full"
-      bg="white"
-      opacity="50"
-      color="gray.900"
-      zIndex="50"
-      backdropFilter="blur-lg"
-      _dark={{ bg: "dark", color: "gray.100", bgOpacity: "50" }}
-    >
-      <Flex
-        alignItems="center"
-        justifyContent="space-between"
-        maxW="6xl"
-        px={4}
-        py={3}
-        mx="auto"
-        wrap="wrap"
-      >
-        <Flex justify="start" flex="1">
-          <Link href="/" passHref>
-            <Box display={{ base: "block", dark: "none" }}>
-              <Image
-                alt="Chris Leggatt"
-                height={38}
-                width={38}
-                src={DarkLogo}
-                blurDataURL={DarkLogo}
-              />
-            </Box>
-          </Link>
-          <Link href="/" passHref>
-            <Box display={{ base: "none", dark: "block" }}>
-              <Image
-                alt="Chris Leggatt"
-                height={38}
-                width={38}
-                src={LightLogo}
-                blurDataURL={LightLogo}
-              />
-            </Box>
-          </Link>
-        </Flex>
-
-        <IconButton
-          display={{ base: "flex", md: "none" }}
-          onClick={onOpen}
-          icon={<HamburgerIcon />}
-          aria-label="Open menu"
-          variant="ghost"
-        />
-
-        <Flex
-          display={{ base: "none", md: "flex" }}
-          ml={10}
-          alignItems="center"
-          flexGrow={1}
-        >
-          {linksArray.map((link) => (
-            <NavLink key={link.text} href={link.href} text={link.text} />
-          ))}
-        </Flex>
-
-        <Flex
-          alignItems="center"
-          justifyContent="end"
-          flex="1"
-          display={{ base: "none", md: "flex" }}
-        >
-          <IconButton
-            aria-label="Toggle Dark Mode"
-            icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
-            onClick={toggleColorMode}
-            variant="ghost"
-          />
-        </Flex>
-      </Flex>
-
-      {isOpen && (
-        <Box
-          position="fixed"
-          top="0"
-          right="0"
-          w="full"
-          maxW="xs"
-          p={6}
-          bg="white"
-          shadow="lg"
-          rounded="3xl"
-          zIndex="50"
-          _dark={{ bg: "gray.800" }}
-        >
-          <IconButton
-            position="absolute"
-            top={5}
-            right={5}
-            icon={<CloseIcon />}
-            aria-label="Close navigation"
-            onClick={onClose}
-            variant="ghost"
-          />
-          <VStack spacing={6} mt={6}>
-            {linksArray.map((link, index) => (
-              <Link key={`${link.text}-${index}`} href={link.href} passHref>
-                <ChakraLink
-                  _hover={{ color: "teal.400", textDecoration: "none" }}
-                  _dark={{ _hover: { color: "teal.500" } }}
-                >
-                  {link.text}
-                </ChakraLink>
-              </Link>
-            ))}
-          </VStack>
-          <Box
-            pt={6}
-            mt={6}
-            borderTop="1px"
-            borderColor="gray.200"
-            _dark={{ borderColor: "gray.700" }}
+      <div className="fixed z-50 w-full text-gray-900 bg-white bg-opacity-50 dark:bg-dark dark:text-gray-100 backdrop-filter backdrop-blur-lg dark:bg-opacity-50">
+        <div className="flex items-center justify-between max-w-6xl px-4 py-3 mx-auto sm:px-6 md:space-x-10">
+          <div className="flex justify-start lg:w-0 lg:flex-1">
+            <span className="sr-only">Profile Picture</span>
+            <Link href="/" passHref>
+              <span className="block dark:hidden">
+                <Image
+                  alt="Chris Leggatt"
+                  height={38}
+                  width={38}
+                  src={DarkLogo}
+                  blurDataURL={DarkLogo}
+                  className="rounded-full"
+                />
+              </span>
+            </Link>
+            <Link href="/" passHref>
+              <span className="hidden dark:block">
+                <Image
+                  alt="Chris Leggatt"
+                  height={38}
+                  width={38}
+                  src={LightLogo}
+                  blurDataURL={LightLogo}
+                  className="rounded-full"
+                />
+              </span>
+            </Link>
+          </div>
+          <div
+            className="-my-2 -mr-2 md:hidden"
+            onClick={() => setIsOpen(true)}
           >
-            <Button onClick={toggleColorMode} w="full" variant="ghost">
-              {colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
-              <Box as="span" ml={3}>
-                {colorMode === "dark"
-                  ? "Change to light theme"
-                  : "Change to dark theme"}
-              </Box>
-            </Button>
-          </Box>
-        </Box>
-      )}
-    </Box>
+            <div className="bg-gray-200 dark:bg-midnight text-gray-600 dark:text-gray-300 rounded-full p-3.5 inline-flex items-center justify-center hover:text-gray-700 hover:bg-gray-300 cursor-pointer focus:outline-none general-ring-state">
+              <span className="sr-only">Open menu</span>
+              <Hamburger />
+            </div>
+          </div>
+          <nav className="hidden space-x-8 text-lg md:flex">
+            {linksArray.map((item, index) => {
+              return (
+                <NavLink key={index} href={item.href} text={item.text} />
+              )
+            })}
+          </nav>
+
+          <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
+            <button
+              aria-label="Toggle Dark Mode"
+              type="button"
+              className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full dark:bg-midnight general-ring-state"
+              onClick={() =>
+                setTheme(resolvedTheme === "dark" ? "light" : "dark")
+              }
+            >
+              {mounted && (
+                <div>{resolvedTheme === "dark" ? <Sun /> : <Moon />}</div>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
   );
 };
 

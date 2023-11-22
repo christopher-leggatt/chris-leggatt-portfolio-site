@@ -58,3 +58,27 @@ interface MeetupItemProps {
 interface MeetupProps {
   meetupContent: MeetupItemProps[];
 }
+
+interface ButtonProps {
+  buttonType: ButtonType;
+  onButtonClick: Function;
+  children: ReactNode;
+}
+
+interface PopoverLinkProps {
+  children: string;
+  href: string;
+}
+
+interface ILayoutProps {
+  children: ReactNode;
+}
+
+type TimelineItemProps = {
+  title: string;
+  meta: string;
+  link?: string | undefined | null;
+  meta_small?: string;
+  content: any;
+  children?: ReactNode;
+};

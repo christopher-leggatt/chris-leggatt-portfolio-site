@@ -1,16 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import {
-  Box,
-  Heading,
-  Text,
-  Divider,
-  VStack,
-  Grid,
-  GridItem,
-  Image,
-} from "@chakra-ui/react";
 import Button from "@/app/components/Button";
-import { timelineData } from "@/app/lib/data";
+import Image from "next/image";
+import { timelineData } from "@/app/data/data";
 import { customMetadata } from "@/app/data/metadata";
 import { useRouter } from "next/router";
 import { TimelineItem, TimelineList } from "../components/Timeline/Timeline";
@@ -25,14 +16,15 @@ const About = () => {
 
   return (
     <>
-      <VStack spacing={4} textAlign="center">
-        <Heading as="h1" size="lg" color="indigo.500" textTransform="uppercase">
+      <h1>
+        <span className="block text-base font-semibold tracking-wide text-center text-indigo-500 uppercase dark:text-teal-400">
           About me
-        </Heading>
-        <Heading as="h2" size="2xl" fontWeight="bold">
-          Here&apos;s my story.
-        </Heading>
-        <Text fontSize="lg">
+        </span>
+        <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
+          A little bit of background.
+        </span>
+      </h1>
+      <p>
           I&apos;m Chris, a full stack developer,{" "}
           <PopoverLink href={customMetadata.codepen}>
             creative coder
@@ -42,8 +34,8 @@ const About = () => {
           translate user-focussed designs into pixel-perfect
           websites/applications while adding to my repertoire of software
           disciplines.
-        </Text>
-        <Text fontSize="lg">
+        </p>
+        <p>
           I began my tech journey last year with online modules and quickly
           developed a passion for the worlds that coding can create, Now, having
           graduated BrainStation's Software Engineering course, I&apos;m
@@ -51,50 +43,48 @@ const About = () => {
           <PopoverLink href="/projects">projects/collaborations</PopoverLink>,
           learning new languages and connecting with new people in this newfound
           space.
-        </Text>
-      </VStack>
-
-      <Box display={{ md: "block" }} float="left" mr={8}>
-        <Image
-          src="/public/static/hardware.webp"
-          alt="article cover"
-          width={340}
-          height={448}
-          objectFit="cover"
-        />
-      </Box>
-      <Text fontSize="lg">
+        </p>
+      <div>
+        <div className="hidden md:block md:float-left">
+          <Image
+            className="md:mr-8"
+            src="/public/static/hardware.webp"
+            placeholder="blur"
+            blurDataURL="/public/static/hardware.webp"
+            width={340}
+            height={448}
+            alt='article cover'
+          />
+        </div>
+        <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat.
-      </Text>
-      <Text fontSize="lg">
+        </p>
+        <p>
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         Sed ut perspiciatis unde omnis
-      </Text>
-      <Text fontSize="lg">
+        </p>
+        <p>
         Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
         quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
         voluptas nulla pariatur?
-      </Text>
-      <Text fontSize={"lg"}>
+        </p>
+        <p>
         Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
         fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
         sequi nesciunt.
-      </Text>
-
-      <Divider my={16} />
-
-      <VStack mt={12} spacing={6}>
-        <Heading as="h2" size="lg">
-          Dev timeline
-        </Heading>
-        <Text fontSize="lg">
-          Here&apos;s a brief rundown of my most recent experiences.
-        </Text>
+        </p>
+        <div></div>
+      </div>
+      <hr className="my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl"></hr>
+      
+      <div className="mt-12 space-y-6">
+        <h2 className="m-0 text-gray-900 dark:text-white">Work experience</h2>
+        <p>Here's a brief rundown of my most recent experiences.</p>
         {timelineData && (
           <TimelineList>
             {timelineData.map((item, index) => (
@@ -110,41 +100,41 @@ const About = () => {
           </TimelineList>
         )}
         <Button
-          buttonType={ButtonType.PRIMARY}
           onButtonClick={() => router.push(customMetadata.resume)}
+          buttonType={ButtonType.PRIMARY}
         >
           View my resume
         </Button>
-      </VStack>
-
-      <Divider my={16} />
-
-      <Grid templateColumns={{ md: "repeat(5, 1fr)" }} gap={12}>
-        <GridItem colSpan={3}>
-          <Heading as="h2" size="lg">
-            My skillset
-          </Heading>
-          <Text fontSize="lg">
-            I keep a list of the software I use to those who are interested.
-          </Text>
+      </div>
+      <hr className="my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl"></hr>
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 md:gap-x-12">
+        <div className="col-span-3">
+          <h2>My skillset</h2>
+          <p>
+          I keep a list of the software I use to those who are interested.
+          </p>
           <Button
             buttonType={ButtonType.PRIMARY}
-            onButtonClick={() => router.push("/toolbox")}
+            onButtonClick={() => router.push('/toolbox')}
           >
             Check out my toolbox
           </Button>
-        </GridItem>
-        <GridItem colSpan={2}>
+        </div>
+        <div className="col-span-2">
           <Image
+            className="rounded-3xl group-hover:opacity-75"
+            objectFit="cover"
             src="/public/static/hardware.webp"
-            alt="article cover"
+            placeholder="blur"
+            blurDataURL="/public/static/hardware.webp"
             width={260}
             height={260}
-            objectFit="cover"
-            borderRadius="3xl"
+            layout="responsive"
+            alt='article cover'
           />
-        </GridItem>
-      </Grid>
+        </div>
+      </div>
+
     </>
   );
 };

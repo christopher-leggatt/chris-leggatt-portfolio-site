@@ -1,16 +1,7 @@
-import {
-  Button as ChakraButton,
-  Box,
-  Text,
-  Avatar,
-  VStack,
-  HStack,
-  Center,
-} from "@chakra-ui/react";
-import Divider from "@/app/components/icons/Divider";
-// import { GetStaticProps } from 'next';
+import Button from "./components/Button";
 import { customMetadata } from "./data/metadata";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export const metadata = {
   title: "Home",
@@ -19,60 +10,45 @@ export const metadata = {
 const Home = () => {
   const { push } = useRouter();
   return (
-    <Box>
-      <VStack spacing={6} textAlign="center" align="start">
-        <Box
-          display={{ md: "grid" }}
-          gridTemplateColumns={{ md: "repeat(6, 1fr)" }}
-          alignItems="center"
-          mt={{ base: 12, md: 24 }}
-        >
-          <Text
-            as="h1"
-            fontSize={{ base: "4xl", sm: "5xl" }}
-            fontWeight="bold"
-            gridColumn={{ md: "span 5 / span 5" }}
-            order={{ md: 1 }}
-          >
+    <div>
+      <div>
+        <div className="grid items-center grid-cols-1 mt-12 text-center md:mt-24 md:text-left md:grid-cols-6">
+          <h1 className="order-2 col-span-5 text-4xl leading-tight md:leading-normal md:order-1 sm:text-5xl">
             I&apos;m{" "}
-            <Text as="span" color="teal.500">
-              Chris
-            </Text>
-            a dedicated and passionate software engineer, with a background in
-            quality control.
-          </Text>
-          <Box order={{ md: 2 }}>
-            <Avatar
-              name="Chris Leggatt"
-              borderRadius="full"
-              boxSize="160px"
+            <span className="text-teal-500 dark:text-teal-400">Chris</span>. a
+            dedicated and passionate software engineer, with a background in
+            quality control.{" "}
+          </h1>
+          <div className="order-1 md:order-2">
+            <Image
+              alt="Chris Leggatt"
+              height={160}
+              width={160}
               src={customMetadata.avatarUrl}
+              placeholder="blur"
+              blurDataURL={customMetadata.avatarUrl}
+              className="col-span-1 rounded-full"
+              layout="fixed"
             />
-          </Box>
-        </Box>
-        <HStack spacing={4}>
-          <ChakraButton
-            colorScheme="teal"
-            variant="solid"
-            onClick={() => push("/resume")}
+          </div>
+        </div>
+        <div className="space-y-6 text-center md:text-left md:space-y-0 md:space-x-4">
+          <Button
+            buttonType={ButtonType.PRIMARY}
+            onButtonClick={() => push("/blog")}
           >
             My resume
-          </ChakraButton>
-          <ChakraButton
-            colorScheme="gray"
-            variant="outline"
-            onClick={() => push("/about")}
+          </Button>
+          <Button
+            buttonType={ButtonType.SECONDARY}
+            onButtonClick={() => push("/about")}
           >
             More about me
-          </ChakraButton>
-        </HStack>
-      </VStack>
-      <Center>
-        <Divider />
-      </Center>
-      <Box my={16} />
-      <Box mt={16}>{/* Additional content goes here */}</Box>
-    </Box>
+          </Button>
+        </div>
+      </div>
+      <hr className="hr"></hr>
+    </div>
   );
 };
 
