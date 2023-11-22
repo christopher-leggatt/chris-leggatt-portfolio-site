@@ -1,13 +1,6 @@
-import {
-  Box,
-  Heading,
-  Text,
-  SimpleGrid,
-  VStack,
-  HStack,
-} from "@chakra-ui/react";
-import { softwareData, techStackData } from "@/app/lib/data";
+import { softwareData, techStackData } from "@/app/data/data";
 import PopoverLink from "@/app/components/PopoverLink";
+import { ToolboxProps } from "../interfaces";
 
 export const metadata = {
   title: "Home",
@@ -18,77 +11,68 @@ const Toolbox: React.FC<ToolboxProps> = ({
   techStack = techStackData,
 }) => {
   return (
-      <VStack spacing={24}>
-        <Box textAlign="center">
-          <Heading
-            as="h1"
-            size="lg"
-            color="indigo.500"
-            textTransform="uppercase"
-          >
-            Toolbox
-          </Heading>
-          <Text fontSize="4xl" fontWeight="bold" mt={2}>
-            Software I use every day.
-          </Text>
-        </Box>
-
-        <VStack spacing={12}>
-          <Heading as="h2" size="lg">
-            Software
-          </Heading>
-          <SimpleGrid columns={{ base: 1, md: 4 }} spacing={12}>
+    <>
+      <h1>
+        <span className="block text-base font-semibold tracking-wide text-center text-indigo-500 uppercase dark:text-teal-400">
+          Toolbox
+        </span>
+        <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
+          Hardware and Software I use every day.
+        </span>
+      </h1>
+      <div className="space-y-24">
+        <div className="space-y-12">
+          <h2>Software</h2>
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
             {software?.map((item, index) => (
-              <Box key={`${item.url}${index}`}>
-                <Heading as="h3" size="md" mb={4}>
-                  {item.title}
-                </Heading>
-                <HStack spacing={4}>
-                  {item.types.map((tag) => (
-                    <Text key={tag} fontSize="sm">
+              <div key={`${item.url}${index}`}>
+                <h3 className="m-0 text-xl font-medium">{item.title}</h3>
+                <div className="block space-x-4">
+                  {item.types.map((tag: string) => (
+                    <span key={tag} className="text-sm">
                       #{tag}
-                    </Text>
+                    </span>
                   ))}
-                </HStack>
-                <Text mt={4}>{item.description}</Text>
-                {item.url && (
-                  <PopoverLink href={item.url}>
-                    Check it out
-                  </PopoverLink>
-                )}
-              </Box>
+                </div>
+                <div className="mt-4">
+                  <p className="m-0 mb-3 text-base">{item.description}</p>
+                  {item.url && (
+                    <span className="text-base">
+                      <PopoverLink href={item.url}>Check it out</PopoverLink>
+                    </span>
+                  )}
+                </div>
+              </div>
             ))}
-          </SimpleGrid>
-        </VStack>
-
-        <VStack spacing={12}>
-          <Heading as="h2" size="lg">
-            This Site & Tech Stack
-          </Heading>
-          <SimpleGrid columns={{ base: 1, md: 4 }} spacing={12}>
+          </div>
+        </div>
+        <div className="space-y-12">
+          <h2>This Site & Tech Stack</h2>
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
             {techStack?.map((item, index) => (
-              <Box key={`${item.url}${index}`}>
-                <Heading as="h3" size="md" mb={4}>
-                  {item.title}
-                </Heading>
-                <HStack spacing={4}>
-                  {item.types.map((tag) => (
-                    <Text key={tag} fontSize="sm">
+              <div key={`${item.url}${index}`}>
+                <h3 className="m-0 text-xl font-medium">{item.title}</h3>
+                <div className="block space-x-4">
+                  {item.types.map((tag: string) => (
+                    <span key={tag} className="text-sm">
                       #{tag}
-                    </Text>
+                    </span>
                   ))}
-                </HStack>
-                <Text mt={4}>{item.description}</Text>
-                {item.url && (
-                  <PopoverLink href={item.url}>
-                    Check it out
-                  </PopoverLink>
-                )}
-              </Box>
+                </div>
+                <div className="mt-4">
+                  <p className="m-0 mb-3 text-base">{item.description}</p>
+                  {item.url && (
+                    <span className="text-base">
+                      <PopoverLink href={item.url}>Check it out</PopoverLink>
+                    </span>
+                  )}
+                </div>
+              </div>
             ))}
-          </SimpleGrid>
-        </VStack>
-      </VStack>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

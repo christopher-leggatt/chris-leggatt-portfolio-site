@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-import { Box, Container, useColorModeValue, VStack } from "@chakra-ui/react";
 import TopRays from "@/app/assets/images/portfolio_header_bg.png";
 import BottomRays from "@/app/assets/images/portfolio_footer_bg.png";
 import Footer from "@/app/components/Footer";
@@ -8,6 +6,7 @@ import PageTransition from "@/app/components/PageTransition";
 import Image from "next/image";
 import { Providers } from "./providers";
 import { Metadata } from "next";
+import { ILayoutProps } from "./interfaces";
 
 export const metadata: Metadata = {
   title: {
@@ -15,7 +14,6 @@ export const metadata: Metadata = {
     default: "chrisleggatt.dev",
   },
   authors: [{ name: "Chris Leggatt", url: "https://chrisleggatt.dev" }],
-  // headerTitle: "Chris' Portfolio",
   keywords: ["Next.js", "React", "JavaScript", "Typescript", "ChakraUi"],
   description:
     "I'm Chris. I'm a software engineer. Welcome to my corner of the internet. I'm glad you're here!",
@@ -42,82 +40,44 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
+const RootLayout: React.FC<ILayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body>
-        <Providers>
-          <Box
-            bg={useColorModeValue("white", "dark")}
-            color={useColorModeValue("black", "white")}
-            minH="100vh"
-          >
+      <div className={`bg-white dark:bg-dark min-h-screen`}>
+        <body className="prose-headings:font-headings">
+          <Providers>
             <NavMenu />
-            <Container
-              as="main"
-              maxW="6xl"
-              centerContent
-              p={4}
-              bg={useColorModeValue("white", "dark")}
-              position="relative"
-              pt="24"
+            <main
+              className={`flex flex-col mx-auto max-w-6xl justify-center px-4 bg-white dark:bg-dark prose prose-lg dark:prose-dark relative pt-24`}
             >
-              <Box
-                position="absolute"
-                overflow="hidden"
-                top={{ base: "-8rem", md: "-18rem" }}
-                right={{ base: "-9rem", md: "0" }}
-                zIndex="hide"
-              >
-                <Box
-                  position="absolute"
-                  top="0"
-                  right="0"
-                  zIndex="hide"
-                  overflow="hidden"
-                >
-                  <Image
-                    src={TopRays}
-                    alt="Header background"
-                    width={924}
-                    height={718}
-                    // unoptimized
-                  />
-                </Box>
-              </Box>
-
-              <VStack spacing={8} position="relative" zIndex="docked">
+              <div className="absolute overflow-hidden -top-32 md:-top-72 md:right-36">
+                <Image
+                  className="absolute top-0 right-0"
+                  src={TopRays}
+                  alt=""
+                  width={924}
+                  height={718}
+                  unoptimized
+                />
+              </div>
+              <div className="z-10">
                 <PageTransition>{children}</PageTransition>
                 <Footer />
-              </VStack>
-
-              <Box
-                position="absolute"
-                bottom="0"
-                overflow="hidden"
-                right={{ base: "-11rem", md: "0" }}
-                zIndex="hide"
-              >
-                <Box
-                  position="absolute"
-                  right={{ base: "-11rem", md: "0" }}
-                  bottom={{ base: "-16rem", md: "-24rem" }}
-                  zIndex="hide"
-                  overflow="hidden"
-                >
-                  <Image
-                    src={BottomRays}
-                    alt="Footer background"
-                    width={924}
-                    height={718}
-                    // unoptimized
-                  />
-                </Box>
-              </Box>
-            </Container>
-          </Box>
-        </Providers>
-      </body>
+              </div>
+              <div className="absolute bottom-0 overflow-hidden">
+                <Image
+                  className="absolute -right-44 -bottom-64 md:right-0 md:-bottom-96"
+                  src={BottomRays}
+                  alt=""
+                  width={924}
+                  height={718}
+                  unoptimized
+                />
+              </div>
+            </main>
+          </Providers>
+        </body>
+      </div>
     </html>
   );
 };

@@ -1,50 +1,28 @@
-import {
-  Button as ChakraButton,
-  useColorModeValue,
-} from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import ArrowForward from "@/app/components/icons/ArrowForward";
+import React from "react";
+import { ButtonProps } from "@/app/interfaces";
 
-type Props = {
-  buttonType: ButtonType;
-  onButtonClick: Function;
-  children: ReactNode;
-};
-
-const Button: React.FC<Props> = ({ buttonType, onButtonClick, children }) => {
-  const backgroundColor = useColorModeValue(
-    buttonType === ButtonType.PRIMARY ? "midnight" : "transparent",
-    buttonType === ButtonType.SECONDARY ? "gray.200" : "transparent"
-  );
-  const color = useColorModeValue(
-    buttonType === ButtonType.PRIMARY ? "white" : "midnight",
-    buttonType === ButtonType.SECONDARY ? "midnight" : "white"
-  );
-  const hoverBg = useColorModeValue(
-    buttonType === ButtonType.PRIMARY ? "slate.700" : undefined,
-    buttonType === ButtonType.SECONDARY ? undefined : undefined
-  );
-  const svgStroke = useColorModeValue(
-    buttonType === ButtonType.PRIMARY ? "white" : "midnight",
-    buttonType === ButtonType.SECONDARY ? "midnight" : "white"
-  );
-
+const Button: React.FC<ButtonProps> = ({
+  buttonType,
+  onButtonClick,
+  children,
+}) => {
   return (
-    <ChakraButton
+    <button
       aria-label="button"
+      type="button"
+      className={`group inline-flex items-center rounded-full px-6 py-1.5 font-semibold transition ${
+        buttonType === ButtonType.PRIMARY
+          ? "bg-midnight text-white dark:bg-gray-200 dark:text-midnight hover:bg-slate-700"
+          : buttonType === ButtonType.SECONDARY
+          ? "text-midnight dark:text-white"
+          : null
+      }`}
       onClick={() => onButtonClick()}
-      px={6}
-      py={1.5}
-      fontSize="md"
-      fontWeight="semibold"
-      borderRadius="full"
-      bg={backgroundColor}
-      color={color}
-      _hover={{ bg: hoverBg }}
-      rightIcon={<ArrowForwardIcon />}
     >
       {children}
-    </ChakraButton>
+    </button>
   );
 };
 

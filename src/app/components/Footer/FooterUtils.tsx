@@ -1,7 +1,6 @@
 import { customMetadata } from "@/app/data/metadata";
 import { FiGithub as Github, FiCodepen as Codepen } from "react-icons/fi";
 import { AiOutlineLinkedin as Linkedin } from "react-icons/ai";
-import { VStack, Text, Link as ChakraLink } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { FooterNavigation } from "@/app/interfaces";
 import { LinkGroupProps } from "@/app/types";
@@ -45,27 +44,31 @@ export const LinkGroup = ({ title, array }: LinkGroupProps) => {
   const capitalizeFirstLetter = (string: string) =>
     string.charAt(0).toUpperCase() + string.slice(1);
   return (
-    <VStack align="start" spacing={4}>
-      <Text fontSize="sm" fontWeight="semibold" textTransform="uppercase">
-      {capitalizeFirstLetter(title)}
-      </Text>
-      {array.map((item) => (
-        <NextLink key={item.name} href={item.href} passHref>
-          <ChakraLink fontSize="base" _hover={{ textDecoration: "underline" }}>
-            {item.name}
-          </ChakraLink>
-        </NextLink>
-      ))}
-      {/* {title === "extra" && (
-        <ChakraLink
-          href={customMetadata.resume}
-          isExternal
-          fontSize="base"
-          _hover={{ textDecoration: "underline" }}
-        >
-          Resume
-        </ChakraLink>
-      )} */}
-    </VStack>
+    <div className="md:grid md:grid-cols-2 md:gap-8">
+      <div>
+        <h3 className="text-sm font-semibold tracking-wider uppercase">
+          {capitalizeFirstLetter(title)}
+        </h3>
+        <div role="list" className="mt-4 space-y-4">
+          {array.map((item, index) => (
+            <NextLink key={item.name} href={item.href} passHref legacyBehavior>
+              <span className="block text-base text-gray-600 no-underline cursor-pointer hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline">
+                {item.name}
+              </span>
+            </NextLink>
+          ))}
+          {title === "extra" && (
+            <a
+              target="_blank"
+              href={customMetadata.resume}
+              className="block text-base text-gray-600 no-underline hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline"
+              rel="noreferrer"
+            >
+              Resume
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };

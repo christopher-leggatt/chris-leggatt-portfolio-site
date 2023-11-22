@@ -3,7 +3,6 @@ import { customMetadata } from "../data/metadata";
 import path from "path";
 import fs from "fs/promises";
 import { MeetupItem } from "./MeetupUtils";
-import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import { MeetupProps } from "../interfaces";
 
 export const metadata = {
@@ -12,35 +11,41 @@ export const metadata = {
 
 const Meetup: React.FC<MeetupProps> = ({ meetupContent }) => {
   return (
-    <Box>
-      <VStack spacing={4} align="center">
-        <Heading as="h1" size="lg" color="indigo.500" textTransform="uppercase">
+    <>
+      <h1>
+        <span className="block text-base font-semibold tracking-wide text-center text-indigo-500 uppercase dark:text-teal-400">
           Meetup
-        </Heading>
-        <Heading as="h2" size="2xl">
+        </span>
+        <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
           A list of people I would love to meet in real life.
-        </Heading>
-      </VStack>
-      <Text>
+        </span>
+      </h1>
+      <p>
         The internet provides wonderful opportunities to be introduced to
         amazing people. Here&apos;s a list of individuals I would love to meet
         face to face! Want to meet up or be added to the list? Send me a{" "}
         <a target="_blank" href={customMetadata.linkedin} rel="noreferrer">
           message on LinkedIn!
         </a>
-      </Text>
-      <Box className="grid grid-cols-1 md:grid-cols-2 md:gap-8">
-        {meetupContent.map((item, index) => (
-          <MeetupItem
-            key={index}
-            id={`item-${index}`}
-            name={item.name}
-            link={item.link}
-            checked={item.checked}
-          />
-        ))}
-      </Box>
-    </Box>
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
+        <div className="col-span-12">
+          <div className="mt-12">
+            <div className="grid grid-cols-3">
+              {meetupContent.map((item, index) => (
+                <MeetupItem
+                  key={index}
+                  id={`item-${index}`}
+                  name={item.name}
+                  link={item.link}
+                  checked={item.checked}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

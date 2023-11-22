@@ -4,7 +4,6 @@ import { metadata as meta } from "../layout";
 import path from "path";
 import fs from "fs/promises";
 import { ChangelogProps } from "../interfaces";
-import { Box, Heading, VStack } from "@chakra-ui/react";
 
 export const metadata = {
     title: 'Changelog',
@@ -15,15 +14,15 @@ const Changelog: React.FC<ChangelogProps> = ({
   activeItems,
 }) => {
   return (
-    <Box>
-      <VStack spacing={4} align="center">
-        <Heading as="h1" size="lg" color="indigo.500" textTransform="uppercase">
+    <>
+      <h1>
+        <span className="block text-base font-semibold tracking-wide text-center text-indigo-500 uppercase dark:text-teal-400">
           Changelog
-        </Heading>
-        <Heading as="h2" size="2xl">
+        </span>
+        <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
           What&apos;s new and upcoming
-        </Heading>
-      </VStack>
+        </span>
+      </h1>
 
       <TimelineList>
         {activeItems.map((activeItem, index) => (
@@ -60,7 +59,7 @@ const Changelog: React.FC<ChangelogProps> = ({
           />
         ))}
       </TimelineList>
-    </Box>
+    </>
   );
 };
 
