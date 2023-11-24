@@ -34,7 +34,8 @@ const Projects: React.FC = () => {
                 blurDataURL="/public/static/hardware.webp"
                 width={900}
                 height={552}
-                layout="intrinsic"
+                // Debug
+                // layout="intrinsic"
                 alt="Convenient Cannabis E-commerce site Home Page"
               />
             </div>

@@ -14,3 +14,9 @@ type ProjectButtonLinkProps = {
   text: string;
   href: string;
 };
+
+type AnimatedLinkProps = {
+  href: string,
+  children: React.ReactNode,
+};
+

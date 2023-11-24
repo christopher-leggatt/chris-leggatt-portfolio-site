@@ -1,27 +1,32 @@
+import '@/app/styles/globals.css';
+import '@/app/styles/codeblocks.css';
 import TopRays from "@/app/assets/images/portfolio_header_bg.png";
 import BottomRays from "@/app/assets/images/portfolio_footer_bg.png";
 import Footer from "@/app/components/Footer";
 import NavMenu from "@/app/components/NavMenu";
-import PageTransition from "@/app/components/PageTransition";
 import Image from "next/image";
 import { Providers } from "./providers";
 import { Metadata } from "next";
-import { ILayoutProps } from "./interfaces";
+import { LayoutProps } from "./interfaces";
+
+const defaultBaseUrl = "http://localhost:3000"; 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || defaultBaseUrl;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: {
     template: "%s | chrisleggatt.dev",
     default: "chrisleggatt.dev",
   },
-  authors: [{ name: "Chris Leggatt", url: "https://chrisleggatt.dev" }],
-  keywords: ["Next.js", "React", "JavaScript", "Typescript", "ChakraUi"],
+  authors: [{ name: "Chris Leggatt", url: baseUrl }],
+  keywords: ["Next.js", "React", "JavaScript", "Typescript", "Tailwind"],
   description:
     "I'm Chris. I'm a software engineer. Welcome to my corner of the internet. I'm glad you're here!",
   openGraph: {
     title: "Chris Leggatt – full-stack engineer, creative developer.",
     description:
       "I'm Chris. I'm a software engineer. Welcome to my corner of the internet. I'm glad you're here!",
-    url: "https://chrisleggattdev.ca",
+    url: baseUrl,
     siteName: "chrisleggatt.dev",
     images: [
       {
@@ -40,11 +45,10 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout: React.FC<ILayoutProps> = ({ children }) => {
+const RootLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <div className={`bg-white dark:bg-dark min-h-screen`}>
-        <body className="prose-headings:font-headings">
+      <body className={`prose-headings:font-headings bg-white dark:bg-dark min-h-screen`}>
           <Providers>
             <NavMenu />
             <main
@@ -61,7 +65,7 @@ const RootLayout: React.FC<ILayoutProps> = ({ children }) => {
                 />
               </div>
               <div className="z-10">
-                <PageTransition>{children}</PageTransition>
+                <div className="pageContent">{children}</div>
                 <Footer />
               </div>
               <div className="absolute bottom-0 overflow-hidden">
@@ -76,8 +80,7 @@ const RootLayout: React.FC<ILayoutProps> = ({ children }) => {
               </div>
             </main>
           </Providers>
-        </body>
-      </div>
+      </body>
     </html>
   );
 };

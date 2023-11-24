@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import ArrowForward from "@/app/components/icons/ArrowForward";
 import React from "react";
 import { ButtonProps } from "@/app/interfaces";
+import { ButtonType } from "@/app/enums";
 
 const Button: React.FC<ButtonProps> = ({
   buttonType,

@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode } from "react";
 import { TimelineBullet } from "../icons/TimelineBullet";
 import { TimelineItemProps } from "@/app/interfaces";

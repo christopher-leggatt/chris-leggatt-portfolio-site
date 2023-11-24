@@ -1,5 +1,7 @@
-import './styles/globals.css';
-import './styles/codeblocks.css';
+'use client'
+// Debug
+// import './styles/globals.css';
+// import './styles/codeblocks.css';
 import PlausibleProvider from 'next-plausible';
 import { ThemeProvider } from 'next-themes';
 

@@ -1,8 +1,8 @@
-enum PageType {
+export enum PageType {
   WEBSITE = "website",
 }
 
-enum ButtonType {
+export enum ButtonType {
   PRIMARY = "primary",
   SECONDARY = "secondary",
   TERTIARY = "tertiary",
