@@ -1,3 +1,4 @@
+'use client';
 import NextLink from "next/link";
 import { customMetadata } from "@/app/data/metadata";
 import { footerNavigation, LinkGroup } from "./FooterUtils";
@@ -104,6 +105,9 @@ const Footer = () => {
               className="max-w-75"
               src="https://cdn.loom.com/sessions/thumbnails/dc938f87732e4b298519ac3fc9e1b653-1696271012768-with-play.gif"
               alt="Capstone Demo Thumbnail"
+              width={640}
+              height={360}
+              // layout="responsive"
             />
           </a>
         </div>

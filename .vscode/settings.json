@@ -4,8 +4,11 @@
         "chrisleggatt",
         "Codepen",
         "leggatt",
+        "microlink",
+        "swup",
         "tailwindcss",
         "unoptimized",
         "webp"
-    ]
+    ],
+    "css.lint.unknownAtRules": "ignore"
 }

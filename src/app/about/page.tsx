@@ -6,6 +6,7 @@ import { customMetadata } from "@/app/data/metadata";
 import { useRouter } from "next/router";
 import { TimelineItem, TimelineList } from "../components/Timeline/Timeline";
 import PopoverLink from "@/app/components/PopoverLink";
+import { ButtonType } from "../enums";
 
 export const metadata = {
   title: 'About',
@@ -129,7 +130,7 @@ const About = () => {
             blurDataURL="/public/static/hardware.webp"
             width={260}
             height={260}
-            layout="responsive"
+            // layout="responsive"
             alt='article cover'
           />
         </div>

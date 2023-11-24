@@ -70,15 +70,25 @@ interface PopoverLinkProps {
   href: string;
 }
 
-interface ILayoutProps {
+interface LayoutProps {
   children: ReactNode;
 }
 
-type TimelineItemProps = {
+interface TemplateProps {
+  children: ReactNode;
+}
+
+interface TimelineItemProps {
   title: string;
   meta: string;
   link?: string | undefined | null;
   meta_small?: string;
   content: any;
   children?: ReactNode;
-};
+}
+
+export interface ExtendedDocument extends Document {
+  startViewTransition?: any;
+}
+
+

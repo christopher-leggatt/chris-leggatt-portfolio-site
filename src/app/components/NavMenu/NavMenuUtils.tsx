@@ -1,6 +1,8 @@
+'use client';
 import Link from "next/link";
 import { NavLinkProps } from "@/app/interfaces";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
+import useAnimatedRouter from '@/hooks/useAnimatedRouter';
 
 export const linksArray = [
   { href: "/", text: "Home" },
@@ -12,12 +14,17 @@ export const linksArray = [
 ];
 
 export const NavLink: React.FC<NavLinkProps> = ({ href, text }) => {
-  const router = useRouter();
+  // const router = useRouter();
+  const { animatedRoute } = useAnimatedRouter();
   const pathname = usePathname();
   const isActive = pathname === href;
 
   return (
-    <Link href={href} passHref>
+    <Link href={href}
+    onClick={() => {
+      animatedRoute(href);
+    }}
+    passHref>
     <span
       className={`${
         isActive
@@ -27,5 +34,6 @@ export const NavLink: React.FC<NavLinkProps> = ({ href, text }) => {
     >
       {text}
     </span>
-  </Link>  );
+  </Link>
+    );
 };
