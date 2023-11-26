@@ -3,6 +3,13 @@ import { ReactNode, ReactElement } from "react";
 interface NavLinkProps {
   href: string;
   text: string;
+  isExternal?: boolean;
+  className?: boolean;
+}
+
+interface RenderNavLinkProps {
+  item: NavLinkProps;
+  isMobile: boolean;
 }
 
 interface SoftwareItem {

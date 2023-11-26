@@ -1,22 +1,21 @@
-'use client';
+"use client";
 import NextLink from "next/link";
 import { customMetadata } from "@/app/data/metadata";
-import { footerNavigation, LinkGroup } from "./FooterUtils";
+import { footerNavigation } from "./FooterUtils";
 import Image from "next/image";
 import React from "react";
+import useAnimatedRouter from "@/hooks/useAnimatedRouter";
 
 const Footer = () => {
+  const { animatedRoute } = useAnimatedRouter();
+
   return (
     <>
       <footer>
         <hr />
         <div className="xl:grid xl:grid-cols-4 xl:gap-2">
           <div className="grid grid-cols-2 gap-8 xl:col-span-2">
-            
-            {/* General Links */}
-            <LinkGroup title="general" array={footerNavigation.general} />
-
-            {/* <div className="md:grid md:grid-cols-2 md:gap-8">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold tracking-wider uppercase">
                   General
@@ -29,7 +28,12 @@ const Footer = () => {
                       passHref
                       legacyBehavior
                     >
-                      <span className="block text-base text-gray-600 no-underline cursor-pointer hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline">
+                      <span
+                        className="block text-base text-gray-600 no-underline cursor-pointer hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline"
+                        onClick={() => {
+                          animatedRoute(item.href);
+                        }}
+                      >
                         {item.name}
                       </span>
                     </NextLink>
@@ -48,19 +52,20 @@ const Footer = () => {
                       passHref
                       legacyBehavior
                     >
-                      <span className="block text-base text-gray-600 no-underline cursor-pointer hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline">
+                      <span
+                        className="block text-base text-gray-600 no-underline cursor-pointer hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline"
+                        onClick={() => {
+                          animatedRoute(item.href);
+                        }}
+                      >
                         {item.name}
                       </span>
                     </NextLink>
                   ))}
                 </div>
               </div>
-            </div> */}
-
-            {/* Specifics Links */}
-            <LinkGroup title="specifics" array={footerNavigation.specifics} />
-
-            {/* <div className="md:grid md:grid-cols-2 md:gap-8">
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold tracking-wider uppercase">
                   Extra
@@ -73,7 +78,12 @@ const Footer = () => {
                       passHref
                       legacyBehavior
                     >
-                      <span className="block text-base text-gray-600 no-underline cursor-pointer hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline">
+                      <span
+                        className="block text-base text-gray-600 no-underline cursor-pointer hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline"
+                        onClick={() => {
+                          animatedRoute(item.href);
+                        }}
+                      >
                         {item.name}
                       </span>
                     </NextLink>
@@ -88,30 +98,32 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-            </div> */}
-
-            {/* Extra Links */}
-            <LinkGroup title="extra" array={footerNavigation.extra} />
+              <div className="flex flex-col items-start mt-12 md:mt-0">
+                <h3 className="my-0 text-sm font-semibold tracking-wider uppercase text-end">
+                  View My Capstone Demo
+                </h3>
+                <a
+                  className="mt-4 space-y-4"
+                  href="https://www.loom.com/share/dc938f87732e4b298519ac3fc9e1b653"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Image
+                    className="layout space-y-0 w-full"
+                    src="https://cdn.loom.com/sessions/thumbnails/dc938f87732e4b298519ac3fc9e1b653-1696271012768-with-play.gif"
+                    alt="Capstone Demo Thumbnail"
+                    width={60}
+                    height={30}
+                  />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Video Thumbnail */}
-          <a
-            href="https://www.loom.com/share/dc938f87732e4b298519ac3fc9e1b653"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <p className="mb-2">Capstone Demo by Chris Leggatt - Watch Video</p>
-            <Image
-              className="max-w-75"
-              src="https://cdn.loom.com/sessions/thumbnails/dc938f87732e4b298519ac3fc9e1b653-1696271012768-with-play.gif"
-              alt="Capstone Demo Thumbnail"
-              width={640}
-              height={360}
-              // layout="responsive"
-            />
-          </a>
+          {/* <div className="col-span-2 mt-8 xl:mt-0"> */}
+          {/* </div> */}
         </div>
-
         {/* Author and Social Icons */}
         <div className="flex items-center justify-between mt-12">
           <div className="flex items-center order-2 space-x-6">

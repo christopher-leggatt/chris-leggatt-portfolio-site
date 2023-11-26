@@ -11,6 +11,7 @@ const nextConfig = {
       },
     ],
   },
+  // Debug
   // metadata: {
   //   metadataBase: baseUrl,
   // },

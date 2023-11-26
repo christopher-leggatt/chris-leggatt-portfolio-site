@@ -1,17 +1,18 @@
-'use client'
+'use client';
 // Debug
-// import './styles/globals.css';
-// import './styles/codeblocks.css';
 import PlausibleProvider from 'next-plausible';
 import { ThemeProvider } from 'next-themes';
 
-export function Providers({ 
+const defaultBaseUrl = "http://localhost:3000"; 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || defaultBaseUrl;
+
+export default function Providers({ 
     children 
   }: { 
   children: React.ReactNode 
   }) {
   return (
-    <PlausibleProvider domain="chrisleggatt.dev" trackOutboundLinks={true}>
+    <PlausibleProvider domain={baseUrl} trackOutboundLinks={true}>
       <ThemeProvider attribute='class'>
       {children}
       </ThemeProvider>
