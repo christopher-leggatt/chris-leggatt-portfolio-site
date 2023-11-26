@@ -1,11 +1,7 @@
-"use client";
 import { customMetadata } from "@/app/data/metadata";
 import { FiGithub as Github, FiCodepen as Codepen } from "react-icons/fi";
 import { AiOutlineLinkedin as Linkedin } from "react-icons/ai";
-import NextLink from "next/link";
 import { FooterNavigation } from "@/app/interfaces";
-import { LinkGroupProps } from "@/app/types";
-import useAnimatedRouter from "@/hooks/useAnimatedRouter";
 
 export const footerNavigation: FooterNavigation = {
   general: [
@@ -21,7 +17,6 @@ export const footerNavigation: FooterNavigation = {
   extra: [
     { name: "Changelog", href: "/changelog" },
     { name: "Meet up", href: "/meetup" },
-    { name: "Resume", href: "/resume" },
   ],
   social: [
     {
@@ -40,53 +35,4 @@ export const footerNavigation: FooterNavigation = {
       icon: <Codepen />,
     },
   ],
-};
-
-export const LinkGroup = ({ title, array }: LinkGroupProps) => {
-  const capitalizeFirstLetter = (string: string) =>
-    string.charAt(0).toUpperCase() + string.slice(1);
-
-  const { animatedRoute } = useAnimatedRouter();
-
-  return (
-    <div className="md:grid md:grid-cols-2 md:gap-8">
-      <div>
-        <h3 className="text-sm font-semibold tracking-wider uppercase">
-          {capitalizeFirstLetter(title)}
-        </h3>
-        <div role="list" className="mt-4 space-y-4">
-          {array.map((item, index) => (
-            <NextLink
-              key={item.name}
-              href={item.href}
-              passHref
-              legacyBehavior
-              // onClick={() => {
-              //   animatedRoute(item.href);
-              // }}
-            >
-              <span
-                className="block text-base text-gray-600 no-underline cursor-pointer hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline"
-                onClick={() => {
-                  animatedRoute(item.href);
-                }}
-              >
-                {item.name}
-              </span>
-            </NextLink>
-          ))}
-          {title === "extra" && (
-            <a
-              target="_blank"
-              href={customMetadata.resume}
-              className="block text-base text-gray-600 no-underline hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline"
-              rel="noreferrer"
-            >
-              Resume
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
-  );
 };
