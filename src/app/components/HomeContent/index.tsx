@@ -1,6 +1,5 @@
-// components/HomeContent.js
 "use client";
-import Button from "../Button";
+import Button from "../buttons/Button";
 import { useRouter } from "next/navigation";
 import Image from "next/legacy/image";
 import { customMetadata } from "@/app/data/metadata";

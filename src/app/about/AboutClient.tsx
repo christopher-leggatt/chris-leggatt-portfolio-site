@@ -1,28 +1,17 @@
 "use client";
 import { useRouter } from "next/navigation";
-import Button from "@/app/components/Button";
-import { customMetadata } from "@/app/data/metadata";
+import Button from "@/app/components/buttons/Button";
 import { ButtonType } from "../enums";
 
-const AboutClient = () => {
-  const router = useRouter();
+export const ToolboxButton = () => {
+  const { push } = useRouter();
 
   return (
-    <div>
-      <Button
-        onButtonClick={() => router.push(customMetadata.resume)}
-        buttonType={ButtonType.PRIMARY}
-      >
-        View my resume
-      </Button>
       <Button
         buttonType={ButtonType.PRIMARY}
-        onButtonClick={() => router.push("/toolbox")}
+        onButtonClick={() => push("/toolbox")}
       >
         Check out my toolbox
       </Button>
-    </div>
   );
 };
-
-export default AboutClient;

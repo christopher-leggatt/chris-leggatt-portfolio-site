@@ -1,4 +1,6 @@
 import { ReactNode, ReactElement } from "react";
+import { ButtonType } from "./enums";
+import { ExperienceProps } from "./types";
 
 interface NavLinkProps {
   href: string;
@@ -55,6 +57,20 @@ interface ChangelogProps {
   activeItems: ChangelogItem[];
 }
 
+interface Experience {
+  title: string,
+  company: string,
+  company_url: string,
+  duration: string,
+  description: string,
+}
+
+
+
+interface AboutProps {
+  experience: Experience[];
+}
+
 interface MeetupItemProps {
   id?: string;
   name?: string;
@@ -97,5 +113,10 @@ interface TimelineItemProps {
 export interface ExtendedDocument extends Document {
   startViewTransition?: any;
 }
-
+ 
+interface ButtonLinkProps {
+  buttonType: ButtonType;
+  href: string;
+  children?: ReactNode;
+}
 
