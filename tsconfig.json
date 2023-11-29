@@ -21,8 +21,18 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/api/experience/route.ts",
+    "src/app/about/page.tsx"
+  ],
   "exclude": ["node_modules"]
 }

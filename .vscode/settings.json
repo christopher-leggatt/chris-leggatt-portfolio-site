@@ -1,15 +1,17 @@
 {
-    "cSpell.words": [
-        "chakra",
-        "chrisleggatt",
-        "Codepen",
-        "headlessui",
-        "leggatt",
-        "microlink",
-        "swup",
-        "tailwindcss",
-        "unoptimized",
-        "webp"
-    ],
-    "css.lint.unknownAtRules": "ignore"
+  "cSpell.words": [
+    "chakra",
+    "chrisleggatt",
+    "Codepen",
+    "headlessui",
+    "leggatt",
+    "microlink",
+    "skillset",
+    "swup",
+    "tailwindcss",
+    "unoptimized",
+    "webp"
+  ],
+  "css.lint.unknownAtRules": "ignore",
+  "java.format.settings.url": "preferences open"
 }

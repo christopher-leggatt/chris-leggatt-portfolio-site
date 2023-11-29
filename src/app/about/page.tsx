@@ -1,46 +1,53 @@
 /* eslint-disable react/no-unescaped-entities */
 import { customMetadata } from "@/app/data/metadata";
 import Image from "next/legacy/image";
-import PopoverLink from "@/app/components/PopoverLink";
-import { TimelineItem, TimelineList } from "../components/Timeline/Timeline";
-import { ButtonLink } from "../components/buttons/ButtonLink";
+import PopoverLink from "@/app/(components)/PopoverLink";
+import { ButtonLink } from "../(components)/buttons/ButtonLink";
 import { ButtonType } from "../enums";
 import { ToolboxButton } from "./AboutClient";
-import { AboutProps } from "../interfaces";
+import { TimelineItem, TimelineList } from "../(components)/Timeline/Timeline";
+// import { Experience, AboutProps } from "../interfaces";
+import React from 'react';
+import { getExperience } from "@/lib/experience-db";
+
+
+
+// const getExperience = async () => {
+// const getExperience = async (): Promise<Experience[] | null> => {
+  
+//   try {
+//     const res = await fetch(
+//       // `http://localhost:3000/api/Experience`,
+//       `${process.env.NEXT_PUBLIC_BASE_URL}/api/Experience`,
+//       {
+//         cache: "no-store",
+//       }
+//     );
+
+//     if (!res.ok) {
+//       throw new Error("Failed to fetch experience");
+//     }
+//     return res.json();
+
+//     const data: Experience[] = await res.json();
+//     return data;
+//   } catch (error) {
+//     console.log("🚀 ~ file: page.tsx:21 ~ getExperience ~ error:", error);
+//     console.error("Error fetching experience:", error);
+//     return null;
+//   }
+// };
+
+
 
 export const metadata = {
   title: "About",
 };
 
-const About = () => {
+const About = async () => {
 
-  const experience = [
-    {
-      title: "test",
-      company: "test company",
-      company_url: "test company url",
-      duration: "test company duration",
-      description:
-        "Quin ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    },
-    {
-      title: "test",
-      company: "test company",
-      company_url: "test company url",
-      duration: "test company duration",
-      description:
-        "Quin ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    },
-    {
-      title: "test",
-      company: "test company",
-      company_url: "test company url",
-      duration: "test company duration",
-      description:
-        "Quin ea voluptate velit quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    },
-  ];
-  
+  const { experience } = await getExperience();
+
   return (
     <>
       <h1>
@@ -106,7 +113,7 @@ const About = () => {
       <div className="mt-12 space-y-6">
         <h2 className="m-0 text-gray-900 dark:text-white">Work experience</h2>
         <p>Here's a brief rundown of my most recent experiences.</p>
-        {experience && (
+        {experience && experience.length > 0 && (
           <TimelineList>
             {experience.map((item, index) => (
               <TimelineItem
@@ -150,4 +157,3 @@ const About = () => {
 };
 
 export default About;
-

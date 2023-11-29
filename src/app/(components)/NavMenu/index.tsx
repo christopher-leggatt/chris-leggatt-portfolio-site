@@ -4,9 +4,9 @@ import Link from "next/link";
 import LightLogo from "@/app/assets/logo/portfolio_logo_light.svg";
 import DarkLogo from "@/app/assets/logo/portfolio_logo_dark.svg";
 import { RenderNavLink, linksArray } from "./NavMenuUtils";
-import { Sun } from "@/app/components/icons/Sun";
-import { Moon } from "@/app/components/icons/Moon";
-import { Hamburger } from "@/app/components/icons/Hamburger";
+import { Sun } from "@/app/(components)/icons/Sun";
+import { Moon } from "@/app/(components)/icons/Moon";
+import { Hamburger } from "@/app/(components)/icons/Hamburger";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
@@ -56,9 +56,9 @@ const NavMenu = () => {
           </div>
         </div>
         <nav className="hidden space-x-8 text-lg md:flex">
-            {linksArray.map((item, index) => {
-              return <RenderNavLink key={index} item={item} isMobile={false} />;
-            })}
+          {linksArray.map((item, index) => {
+            return <RenderNavLink key={index} item={item} isMobile={false} />;
+          })}
         </nav>
 
         <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
@@ -106,9 +106,11 @@ const NavMenu = () => {
               </svg>
             </button>
             <ul className="space-y-6">
-            {linksArray.map((item, index) => {
-              return <RenderNavLink key={index} item={item} isMobile={true} />;
-            })}
+              {linksArray.map((item, index) => {
+                return (
+                  <RenderNavLink key={index} item={item} isMobile={true} />
+                );
+              })}
 
               {/* <li>
                 <Link href="/" passHref>

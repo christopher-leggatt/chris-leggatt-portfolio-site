@@ -1,13 +1,13 @@
 import { GetStaticProps } from "next";
-import { TimelineItem, TimelineList } from "../components/Timeline/Timeline";
+import { TimelineItem, TimelineList } from "../(components)/Timeline/Timeline";
 import { metadata as meta } from "../layout";
 import path from "path";
 import fs from "fs/promises";
 import { ChangelogProps } from "../interfaces";
 
 export const metadata = {
-    title: 'Changelog',
-  }
+  title: "Changelog",
+};
 
 const Changelog: React.FC<ChangelogProps> = ({
   completedItems,

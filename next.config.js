@@ -11,6 +11,10 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    serverActions: true,
+    serverComponentsExternalPackages: ["mongoose", "@typegoose/typegoose"],
+  },
   // Debug
   // metadata: {
   //   metadataBase: baseUrl,

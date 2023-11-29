@@ -19,4 +19,3 @@ type AnimatedLinkProps = {
   href: string,
   children: React.ReactNode,
 };
-
