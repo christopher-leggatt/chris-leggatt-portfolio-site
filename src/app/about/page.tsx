@@ -6,46 +6,13 @@ import { ButtonLink } from "../(components)/buttons/ButtonLink";
 import { ButtonType } from "../enums";
 import { ToolboxButton } from "./AboutClient";
 import { TimelineItem, TimelineList } from "../(components)/Timeline/Timeline";
-// import { Experience, AboutProps } from "../interfaces";
-import React from 'react';
 import { getExperience } from "@/lib/experience-db";
-
-
-
-// const getExperience = async () => {
-// const getExperience = async (): Promise<Experience[] | null> => {
-  
-//   try {
-//     const res = await fetch(
-//       // `http://localhost:3000/api/Experience`,
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/api/Experience`,
-//       {
-//         cache: "no-store",
-//       }
-//     );
-
-//     if (!res.ok) {
-//       throw new Error("Failed to fetch experience");
-//     }
-//     return res.json();
-
-//     const data: Experience[] = await res.json();
-//     return data;
-//   } catch (error) {
-//     console.log("🚀 ~ file: page.tsx:21 ~ getExperience ~ error:", error);
-//     console.error("Error fetching experience:", error);
-//     return null;
-//   }
-// };
-
-
 
 export const metadata = {
   title: "About",
 };
 
 const About = async () => {
-
   const { experience } = await getExperience();
 
   return (
