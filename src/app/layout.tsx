@@ -4,7 +4,7 @@ import "@/app/styles/custom-styles.css";
 import Rays from "@/app/assets/images/portfolio_rays.png";
 import Footer from "@/app/(components)/Footer";
 import NavMenu from "@/app/(components)/NavMenu";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Providers from "./providers";
 import { Metadata } from "next";
 import { LayoutProps } from "./interfaces";
@@ -53,30 +53,26 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
           <div className={` bg-white dark:bg-dark min-h-screen`}>
             <NavMenu />
             <main
-              className={`flex flex-col mx-auto max-w-6xl justify-center px-4 bg-white dark:bg-dark prose prose-lg dark:prose-dark relative pt-24`}
+              className={`flex overflow-hidden flex-col mx-auto max-w-6xl justify-center px-4 bg-white dark:bg-dark prose prose-lg dark:prose-dark relative pt-24`}
             >
-              <div className="absolute overflow-visible -top-32 md:-top-72">
                 <Image
-                  className="absolute top-0 right-0"
+                  className="absolute t-top-32 md:-top-72"
                   src={Rays}
                   alt="Rays"
                   width={1280}
                   height={995}
                 />
-              </div>
               <div className="z-10">
-                <div className="pageContent">{children}</div>
+                {children}
                 <Footer />
               </div>
-              <div className="absolute overflow-hidden bottom-0">
                 <Image
-                  className="absolute -right-44 -bottom-64 md:right-0 md:-bottom-96 max-w-5xl"
+                  className="absolute -right-44 -bottom-64 md:right-0 md:-bottom-96 max-w-6xl"
                   src={Rays}
                   alt="Rays"
                   width={1280}
                   height={995}
                 />
-              </div>
             </main>
           </div>
         </Providers>

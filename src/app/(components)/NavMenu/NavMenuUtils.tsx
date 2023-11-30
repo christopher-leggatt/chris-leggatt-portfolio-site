@@ -1,8 +1,8 @@
-"use client";
+// "use client";
+// Debug
 import Link from "next/link";
 import { NavLinkProps, RenderNavLinkProps } from "@/app/interfaces";
 import { usePathname } from "next/navigation";
-import useAnimatedRouter from "@/hooks/useAnimatedRouter";
 import { customMetadata } from "@/app/data/metadata";
 
 export const linksArray: NavLinkProps[] = [
@@ -68,7 +68,6 @@ export const RenderNavLink: React.FC<RenderNavLinkProps> = ({
   item,
   isMobile,
 }) => {
-  const { animatedRoute } = useAnimatedRouter();
   const pathname = usePathname();
   const isActive = pathname === item.href;
 
@@ -83,10 +82,7 @@ export const RenderNavLink: React.FC<RenderNavLinkProps> = ({
   }`;
 
   const linkContent = item.isExternal ? (
-    <a
-      onClick={() => {
-        animatedRoute(item.href);
-      }}
+    <a      
       href={item.href}
       className={linkClass}
       target="_blank"
@@ -95,10 +91,7 @@ export const RenderNavLink: React.FC<RenderNavLinkProps> = ({
       {item.text}
     </a>
   ) : (
-    <Link
-      onClick={() => {
-        animatedRoute(item.href);
-      }}
+    <Link      
       href={item.href}
       passHref
     >
