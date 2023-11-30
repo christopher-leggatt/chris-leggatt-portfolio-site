@@ -1,7 +1,10 @@
-import ArrowForwardAnimated from '@/app/components/icons/ArrowForwardAnimated';
-import { ProjectButtonLinkProps } from '../types';
+import ArrowForwardAnimated from "@/app/(components)/icons/ArrowForwardAnimated";
+import { ProjectButtonLinkProps } from "../types";
 
-const ProjectButtonLink: React.FC<ProjectButtonLinkProps> = ({ text, href }) => {
+const ProjectButtonLink: React.FC<ProjectButtonLinkProps> = ({
+  text,
+  href,
+}) => {
   return (
     <a
       href={href}

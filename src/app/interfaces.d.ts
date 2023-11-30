@@ -58,14 +58,12 @@ interface ChangelogProps {
 }
 
 interface Experience {
-  title: string,
-  company: string,
-  company_url: string,
-  duration: string,
-  description: string,
+  title: string;
+  company: string;
+  company_url: string;
+  duration: string;
+  description: string;
 }
-
-
 
 interface AboutProps {
   experience: Experience[];
@@ -113,10 +111,9 @@ interface TimelineItemProps {
 export interface ExtendedDocument extends Document {
   startViewTransition?: any;
 }
- 
+
 interface ButtonLinkProps {
   buttonType: ButtonType;
   href: string;
   children?: ReactNode;
 }
-

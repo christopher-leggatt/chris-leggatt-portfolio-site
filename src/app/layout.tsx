@@ -2,8 +2,8 @@ import "@/app/styles/globals.css";
 import "@/app/styles/codeblocks.css";
 import "@/app/styles/custom-styles.css";
 import Rays from "@/app/assets/images/portfolio_rays.png";
-import Footer from "@/app/components/Footer";
-import NavMenu from "@/app/components/NavMenu";
+import Footer from "@/app/(components)/Footer";
+import NavMenu from "@/app/(components)/NavMenu";
 import Image from "next/legacy/image";
 import Providers from "./providers";
 import { Metadata } from "next";
@@ -55,28 +55,26 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
             <main
               className={`flex flex-col mx-auto max-w-6xl justify-center px-4 bg-white dark:bg-dark prose prose-lg dark:prose-dark relative pt-24`}
             >
-              <div className="absolute overflow-hidden -top-32 md:-top-72 md:right-36">
+              <div className="absolute overflow-visible -top-32 md:-top-72">
                 <Image
                   className="absolute top-0 right-0"
                   src={Rays}
-                  alt=""
-                  width={924}
-                  height={718}
-                  unoptimized
+                  alt="Rays"
+                  width={1280}
+                  height={995}
                 />
               </div>
               <div className="z-10">
                 <div className="pageContent">{children}</div>
                 <Footer />
               </div>
-              <div className="image-container absolute overflow-hidden bottom-0">
+              <div className="absolute overflow-hidden bottom-0">
                 <Image
-                  className="absolute -right-44 -bottom-64 md:right-0 md:-bottom-96"
+                  className="absolute -right-44 -bottom-64 md:right-0 md:-bottom-96 max-w-5xl"
                   src={Rays}
-                  alt=""
-                  width={924}
-                  height={718}
-                  unoptimized
+                  alt="Rays"
+                  width={1280}
+                  height={995}
                 />
               </div>
             </main>

@@ -1,0 +1,75 @@
+// import mongoose, { Schema } from "mongoose";
+
+// mongoose.connect(process.env.MONGODB_URI!);
+// mongoose.Promise = global.Promise;
+
+// const experienceSchema = new Schema(
+//   {
+//     title: String,
+//     company: String,
+//     company_url: String,
+//     duration: String,
+//     description: String,
+//   },
+// );
+
+// export const Experience = mongoose.models.experience;
+
+import {
+  ModelOptions,
+  Severity,
+  getModelForClass,
+  index,
+  post,
+  prop,
+} from "@typegoose/typegoose";
+import mongoose from "mongoose";
+
+@post<ExperienceClass>("save", function (doc) {
+  if (doc) {
+    doc.id = doc._id.toString();
+    doc._id = doc.id;
+  }
+})
+@post<ExperienceClass[]>(/^find/, function (docs) {
+  // @ts-ignore
+  if (this.op === "find") {
+    docs.forEach((doc) => {
+      doc.id = doc._id.toString();
+      doc._id = doc.id;
+    });
+  }
+})
+@ModelOptions({
+  schemaOptions: {
+    timestamps: true,
+    collection: "experience",
+  },
+  options: {
+    allowMixed: Severity.ALLOW,
+  },
+})
+@index({ title: 1 })
+class ExperienceClass {
+  @prop({ required: true })
+  title: string;
+
+  @prop({ required: true })
+  company: string;
+
+  @prop({ required: true })
+  company_url: string;
+
+  @prop({ required: true })
+  duration: string;
+
+  @prop({ required: true })
+  description: string;
+
+  _id: mongoose.Types.ObjectId | string;
+
+  id: string;
+}
+
+const Experience = getModelForClass(ExperienceClass);
+export { Experience, ExperienceClass };

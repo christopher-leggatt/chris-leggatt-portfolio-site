@@ -1,5 +1,5 @@
 import { softwareData, techStackData } from "@/app/data/data";
-import PopoverLink from "@/app/components/PopoverLink";
+import PopoverLink from "@/app/(components)/PopoverLink";
 import { ToolboxProps } from "../interfaces";
 
 export const metadata = {

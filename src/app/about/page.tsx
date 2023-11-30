@@ -1,46 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
 import { customMetadata } from "@/app/data/metadata";
 import Image from "next/legacy/image";
-import PopoverLink from "@/app/components/PopoverLink";
-import { TimelineItem, TimelineList } from "../components/Timeline/Timeline";
-import { ButtonLink } from "../components/buttons/ButtonLink";
+import PopoverLink from "@/app/(components)/PopoverLink";
+import { ButtonLink } from "../(components)/buttons/ButtonLink";
 import { ButtonType } from "../enums";
 import { ToolboxButton } from "./AboutClient";
-import { AboutProps } from "../interfaces";
+import { TimelineItem, TimelineList } from "../(components)/Timeline/Timeline";
+import { getExperience } from "@/lib/experience-db";
 
 export const metadata = {
   title: "About",
 };
 
-const About = () => {
+const About = async () => {
+  const { experience } = await getExperience();
 
-  const experience = [
-    {
-      title: "test",
-      company: "test company",
-      company_url: "test company url",
-      duration: "test company duration",
-      description:
-        "Quin ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    },
-    {
-      title: "test",
-      company: "test company",
-      company_url: "test company url",
-      duration: "test company duration",
-      description:
-        "Quin ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    },
-    {
-      title: "test",
-      company: "test company",
-      company_url: "test company url",
-      duration: "test company duration",
-      description:
-        "Quin ea voluptate velit quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    },
-  ];
-  
   return (
     <>
       <h1>
@@ -106,7 +80,7 @@ const About = () => {
       <div className="mt-12 space-y-6">
         <h2 className="m-0 text-gray-900 dark:text-white">Work experience</h2>
         <p>Here's a brief rundown of my most recent experiences.</p>
-        {experience && (
+        {experience && experience.length > 0 && (
           <TimelineList>
             {experience.map((item, index) => (
               <TimelineItem
@@ -150,4 +124,3 @@ const About = () => {
 };
 
 export default About;
-
