@@ -4,6 +4,9 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const nextConfig = {
   images: {
+    domains: [
+      'iad.microlink.io' // link preview
+    ],
     remotePatterns: [
       {
         protocol: "https",
