@@ -8,7 +8,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="z-50 w-full text-gray-900 bg-white bg-opacity-50 dark:bg-dark dark:text-gray-100 backdrop-filter backdrop-blur-lg dark:bg-opacity-50">
+    <div className="z-50 w-screen text-gray-900 bg-white bg-opacity-50 dark:bg-dark dark:text-gray-100 backdrop-filter backdrop-blur-lg dark:bg-opacity-50">
       <footer className="max-w-6xl mx-auto">
         {/* <footer> */}
         <hr />
@@ -93,7 +93,7 @@ const Footer = () => {
                     rel="noreferrer"
                   >
                     <Image
-                      className="layout space-y-0 w-full"
+                      className="layout space-y-0 w-auto"
                       src="https://cdn.loom.com/sessions/thumbnails/dc938f87732e4b298519ac3fc9e1b653-1696271012768-with-play.gif"
                       alt="Capstone Demo Thumbnail"
                       width={60}
