@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useCallback, useState, useEffect } from "react";
 import NextLink from "next/link";
 import Image from "next/image";
@@ -81,6 +81,7 @@ const PopoverLink: React.FC<PopoverLinkProps> = ({ children, href }) => {
                   className="object-cover object-top w-56 h-40 bg-white rounded-md shadow-lg hover:ring-4 hover:ring-emerald-400"
                   src={imagePreview}
                   alt={children}
+                  sizes="224px"
                 />
               ) : (
                 <span className="flex items-center justify-center w-56 h-40 bg-white rounded-md shadow-lg text-slate-800">
