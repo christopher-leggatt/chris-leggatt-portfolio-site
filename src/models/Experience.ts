@@ -1,20 +1,3 @@
-// import mongoose, { Schema } from "mongoose";
-
-// mongoose.connect(process.env.MONGODB_URI!);
-// mongoose.Promise = global.Promise;
-
-// const experienceSchema = new Schema(
-//   {
-//     title: String,
-//     company: String,
-//     company_url: String,
-//     duration: String,
-//     description: String,
-//   },
-// );
-
-// export const Experience = mongoose.models.experience;
-
 import {
   ModelOptions,
   Severity,
@@ -71,5 +54,5 @@ class ExperienceClass {
   id: string;
 }
 
-const Experience = getModelForClass(ExperienceClass);
+const Experience = mongoose.models.ExperienceClass || getModelForClass(ExperienceClass);
 export { Experience, ExperienceClass };

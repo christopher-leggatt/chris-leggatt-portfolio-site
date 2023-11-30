@@ -10,7 +10,6 @@ import { Hamburger } from "@/app/(components)/icons/Hamburger";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { customMetadata } from "@/app/data/metadata";
 
 const NavMenu = () => {
   const [mounted, setMounted] = useState(false);
@@ -111,43 +110,6 @@ const NavMenu = () => {
                   <RenderNavLink key={index} item={item} isMobile={true} />
                 );
               })}
-
-              {/* <li>
-                <Link href="/" passHref>
-                  <span className="hover:text-teal-400 dark:hover:text-teal-500">
-                    Home
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" passHref>
-                  <span className="hover:text-teal-400 dark:hover:text-teal-500">
-                    About
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects" passHref>
-                  <span className="hover:text-teal-400 dark:hover:text-teal-500">
-                    Projects
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <a
-                  href={customMetadata.resume}
-                  className="hover:text-teal-400 dark:hover:text-teal-500"
-                >
-                  Resume
-                </a>
-              </li>
-              <li>
-                <Link href="/toolbox" passHref>
-                  <span className="hover:text-teal-400 dark:hover:text-teal-500">
-                    Toolbox
-                  </span>
-                </Link>
-              </li> */}
             </ul>
             <div className="pt-6 mt-6 border-t border-gray-200 dark:border-gray-200/10">
               <button

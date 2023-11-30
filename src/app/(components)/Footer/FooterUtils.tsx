@@ -8,10 +8,8 @@ export const footerNavigation: FooterNavigation = {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Projects", href: "/projects" },
-    { name: "Blog", href: "/blog" },
   ],
   specifics: [
-    { name: "Stats", href: "/stats" },
     { name: "Toolbox", href: "/toolbox" },
   ],
   extra: [
