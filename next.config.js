@@ -5,7 +5,7 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 const nextConfig = {
   images: {
     domains: [
-      'iad.microlink.io' // link preview
+      "iad.microlink.io", // link preview
     ],
     remotePatterns: [
       {
@@ -14,12 +14,9 @@ const nextConfig = {
       },
     ],
   },
-  serverActions: true,
-  serverComponentsExternalPackages: ["mongoose", "@typegoose/typegoose"],
-  // Debug
-  // metadata: {
-  //   metadataBase: baseUrl,
-  // },
+  experimental: {
+    serverComponentsExternalPackages: ["mongoose", "@typegoose/typegoose"],
+  },
 };
 
 module.exports = nextConfig;
