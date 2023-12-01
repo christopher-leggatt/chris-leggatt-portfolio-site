@@ -1,5 +1,8 @@
 import Image from "next/image";
 import ButtonLink from "./ProjectButtonLink";
+import { customMetadata } from "../data/metadata";
+import CapstoneImage from "@/app/assets/images/projects_convenient_cannabis.png";
+import PortfolioImage from '@/app/assets/images/projects_portfolio_site.png';
 
 export const metadata = {
   title: "Projects",
@@ -23,27 +26,57 @@ const Projects: React.FC = () => {
           <div className="grid grid-cols-1 min-h-[500px] md:grid-cols-2">
             <div className="self-end col-span-1 m-8 text-center md:text-left">
               <h2 className="mt-0">Convenient Cannabis E-commerce site</h2>
-              <p>This is a description</p>
-              <ButtonLink text="Visit Convenient Cannabis" href="#" />
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam.
+              </p>
+              <ButtonLink
+                text="Visit Convenient Cannabis"
+                href={customMetadata.capstone}
+              />
             </div>
-            <div className="md:absolute md:top-4 md:right-[-200px] md:w-[800px]">
+            <div className="md:absolute md:top-4 md:right-[-200px] md:w-[800px] object-fill">
               <Image
-                objectFit="fill"
-                src="/public/static/hardware.webp"
-                placeholder="blur"
-                blurDataURL="/public/static/hardware.webp"
+                src={CapstoneImage}
+                placeholder="empty"
                 width={900}
                 height={552}
-                // Debug
-                // layout="intrinsic"
-                alt="Convenient Cannabis E-commerce site Home Page"
+                alt="Convenient Cannabis on laptop"
               />
             </div>
           </div>
         </div>
+      </div>
 
-        <br />
-        <br />
+      <br />
+      <br />
+
+      <div className="relative w-full overflow-hidden border rounded-3xl bg-gradient-to-b from-purple-50 dark:from-purple-900/50 dark:to-fuchsia-700 to-fuchsia-300 dark:border-slate-700 border-slate-100">
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-fuchsia-300 dark:via-fuchsia-600 to-transparent"></div>
+        <div className="grid grid-cols-1 min-h-[500px] max-h-[500px] md:grid-cols-2">
+          <div className="md:max-w-[650px] max-h-[500px] relative md:ml-5">
+            <Image
+              layout="fill"
+              objectFit="contain"
+              src={PortfolioImage}
+              placeholder="empty"
+              alt="Portfolio Site on tablet"
+            />
+          </div>
+          <div className="self-center order-first col-span-1 m-8 text-center md:order-last md:text-left">
+            <h2 className="mt-0">Portfolio Site</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+            </p>
+            <ButtonLink
+              text="Visit Portfolio Site"
+              href={customMetadata.capstone}
+              />
+          </div>
+        </div>
       </div>
     </>
   );
