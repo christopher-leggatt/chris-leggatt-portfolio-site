@@ -14,25 +14,6 @@ interface RenderNavLinkProps {
   isMobile: boolean;
 }
 
-interface SoftwareItem {
-  url: string;
-  title: string;
-  types: string[];
-  description: string;
-}
-
-interface TechStackItem {
-  url: string;
-  title: string;
-  types: string[];
-  description: string;
-}
-
-interface ToolboxProps {
-  software?: SoftwareItem[];
-  techStack?: TechStackItem[];
-}
-
 interface FooterNavLink {
   name: string;
   href: string;
@@ -108,4 +89,24 @@ interface ButtonLinkProps {
   buttonType: ButtonType;
   href: string;
   children?: ReactNode;
+}
+
+interface ToolboxData {
+  software: ToolboxItem[];
+  tech_stack: ToolboxItem[];
+  site: ToolboxItem[];
+}
+
+interface ToolboxItem {
+  url: string;
+  title: string;
+  types: string[];
+  description: string;
+}
+
+interface ToolboxProps {
+    software: ToolboxItem[];
+    tech_stack: ToolboxItem[];
+    site: ToolboxItem[];
+    _id: mongoose.Types.ObjectId | string;
 }
