@@ -17,8 +17,8 @@ export const MeetupItem: React.FC<MeetupItemProps> = ({
           checked={checked}
           className="w-4 h-4 text-teal-500 border-gray-300 rounded focus:ring-teal-500"
         />
-        <span className="    ">
-          <a href={link} className="text-blue-600 hover:text-blue-800">
+        <span>
+          <a href={link} target="_blank" className="text-gray-600 dark:text-gray-100">
             {name}
           </a>
         </span>
