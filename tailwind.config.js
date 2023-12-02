@@ -33,6 +33,9 @@ module.exports = {
         amber: colors.amber,
         sky: colors.sky,
       },
+      width: {
+        'custom': 'calc(100% + 2rem)', 
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {

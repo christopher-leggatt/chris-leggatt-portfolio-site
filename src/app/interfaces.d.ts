@@ -76,10 +76,6 @@ interface MeetupItemProps {
   checked: boolean;
 }
 
-interface MeetupProps {
-  meetupContent: MeetupItemProps[];
-}
-
 interface ButtonProps {
   buttonType: ButtonType;
   onButtonClick: Function;
@@ -106,10 +102,6 @@ interface TimelineItemProps {
   meta_small?: string;
   content: any;
   children?: ReactNode;
-}
-
-export interface ExtendedDocument extends Document {
-  startViewTransition?: any;
 }
 
 interface ButtonLinkProps {

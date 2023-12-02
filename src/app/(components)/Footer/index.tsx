@@ -8,8 +8,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="z-50 w-screen text-gray-900 bg-white bg-opacity-50 dark:bg-dark dark:text-gray-100 backdrop-filter backdrop-blur-lg dark:bg-opacity-50">
-      <footer className="max-w-6xl mx-auto">
+    <div className="z-50 w-custom relative -left-4 bg-white bg-opacity-50 dark:bg-dark backdrop-filter backdrop-blur-lg dark:bg-opacity-50">
+      <footer className="z-52 max-w-6xl mx-4 6xl:mx-auto text-gray-900 dark:text-gray-100">
         {/* <footer> */}
         <hr />
         <div className="xl:grid xl:grid-cols-4 xl:gap-2">
@@ -75,7 +75,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     href={customMetadata.resume}
-                    className="block text-base text-gray-600 no-underline hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline"
+                    className="block  font-normal text-base text-gray-600 no-underline hover:text-gray-800 dark:hover:text-gray-300 dark:text-gray-400 hover:underline"
                     rel="noreferrer"
                   >
                     Resume

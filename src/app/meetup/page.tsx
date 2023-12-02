@@ -1,15 +1,13 @@
-import { GetStaticProps } from "next";
 import { customMetadata } from "../data/metadata";
-import path from "path";
-import fs from "fs/promises";
 import { MeetupItem } from "./MeetupUtils";
-import { MeetupProps } from "../interfaces";
+import { getMeetup } from "@/lib/meetup-db";
 
 export const metadata = {
   title: "Meetup",
 };
 
-const Meetup: React.FC<MeetupProps> = ({ meetupContent }) => {
+const Meetup = async () => {
+  const { meetup } = await getMeetup();
   return (
     <>
       <h1>
@@ -32,7 +30,7 @@ const Meetup: React.FC<MeetupProps> = ({ meetupContent }) => {
         <div className="col-span-12">
           <div className="mt-12">
             <div className="grid grid-cols-3">
-              {meetupContent.map((item, index) => (
+              {meetup!.map((item, index) => (
                 <MeetupItem
                   key={index}
                   id={`item-${index}`}
@@ -49,15 +47,4 @@ const Meetup: React.FC<MeetupProps> = ({ meetupContent }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const filePath = path.join(process.cwd(), "data", "meetup.json");
-  const jsonData = await fs.readFile(filePath);
-  const data = JSON.parse(jsonData.toString());
-
-  return {
-    props: {
-      meetupContent: data,
-    },
-    revalidate: 1800,
-  };
-};
+export default Meetup;
