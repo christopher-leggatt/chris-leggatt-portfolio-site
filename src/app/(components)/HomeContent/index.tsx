@@ -1,9 +1,10 @@
 "use client";
-import Button from "../buttons/Button";
+import Button from "@/app/(components)/buttons/Button";
+import ButtonLink, { ButtonLinkProps } from "@/app/(components)/buttons/ButtonLink";
 import { useRouter } from "next/navigation";
 import Image from "next/legacy/image";
 import { customMetadata } from "@/app/data/metadata";
-import { ButtonType } from "@/enums";
+import { ButtonType } from "@/types/enums";
 
 const HomeContent = () => {
   const { push } = useRouter();
@@ -34,12 +35,12 @@ const HomeContent = () => {
           </div>
         </div>
         <div className="space-y-6 text-center md:text-left md:space-y-0 md:space-x-4">
-          <Button
+          <ButtonLink
             buttonType={ButtonType.PRIMARY}
-            onButtonClick={() => push("/blog")}
+            href={customMetadata.resume}
           >
             My resume
-          </Button>
+          </ButtonLink>
           <Button
             buttonType={ButtonType.SECONDARY}
             onButtonClick={() => push("/about")}

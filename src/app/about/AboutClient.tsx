@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Button from "@/app/(components)/buttons/Button";
-import { ButtonType } from "../../enums";
+import { ButtonType } from "@/types/enums";
 
 export const ToolboxButton = () => {
   const { push } = useRouter();

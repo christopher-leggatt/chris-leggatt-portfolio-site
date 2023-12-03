@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import React from "react";
+import { ButtonType } from "@/types/enums";
 
 interface ButtonProps {
   buttonType: ButtonType;

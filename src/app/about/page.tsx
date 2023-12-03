@@ -2,10 +2,11 @@
 import { customMetadata } from "@/app/data/metadata";
 import Image from "next/legacy/image";
 import PopoverLink from "@/app/(components)/PopoverLink";
-import { ButtonLink } from "../(components)/buttons/ButtonLink";
+import ButtonLink from "../(components)/buttons/ButtonLink";
 import { ToolboxButton } from "./AboutClient";
 import { TimelineItem, TimelineList } from "../(components)/Timeline/Timeline";
 import { getExperience } from "@/lib/experience-db";
+import { ButtonType } from "@/types/enums";
 
 export const metadata = {
   title: "About",

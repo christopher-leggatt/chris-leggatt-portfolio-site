@@ -1,12 +1,13 @@
 import { ReactNode } from "react";
+import { ButtonType } from "@/types/enums";
 
-interface ButtonLinkProps {
+export interface ButtonLinkProps {
   buttonType: ButtonType;
   href: string;
   children?: ReactNode;
 }
 
-export const ButtonLink: React.FC<ButtonLinkProps> = ({
+const ButtonLink: React.FC<ButtonLinkProps> = ({
   buttonType,
   href,
   children,

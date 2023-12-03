@@ -36,10 +36,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/**/*.ts",
-    "src/app/api/experience/route.ts",
-    "src/app/about/page.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
