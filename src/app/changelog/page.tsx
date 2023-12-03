@@ -1,18 +1,27 @@
-import { GetStaticProps } from "next";
 import { TimelineItem, TimelineList } from "../(components)/Timeline/Timeline";
 import { metadata as meta } from "../layout";
-import path from "path";
-import fs from "fs/promises";
-import { ChangelogProps } from "../interfaces";
+import { getChangelog } from "@/lib/changelog-db";
+import { mongoose } from "@typegoose/typegoose";
+
+interface ChangelogItem {
+  title: string;
+  date: Date;
+  description: string;
+}
+
+interface ChangelogProps {
+  completed: ChangelogItem[];
+  upcoming: ChangelogItem[];
+  _id: mongoose.Types.ObjectId | string;
+}
+
 
 export const metadata = {
   title: "Changelog",
 };
 
-const Changelog: React.FC<ChangelogProps> = ({
-  completedItems,
-  activeItems,
-}) => {
+const Changelog = async () => {
+  const { changelog } = (await getChangelog()) as { changelog: ChangelogProps };
   return (
     <>
       <h1>
@@ -25,37 +34,37 @@ const Changelog: React.FC<ChangelogProps> = ({
       </h1>
 
       <TimelineList>
-        {activeItems.map((activeItem, index) => (
+        {changelog?.upcoming?.map((item, index) => (
           <TimelineItem
             key={index}
-            title={activeItem.title}
-            meta={new Date(activeItem.date).toLocaleDateString(
-              meta.openGraph?.locale,
+            title={item.title}
+            meta={new Date(item.date).toLocaleDateString(
+              meta.openGraph?.locale || "en-US",
               {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
               }
             )}
-            content={`<p>${activeItem.description}</p>`}
+            content={`<p>${item.description}</p>`}
           />
         ))}
       </TimelineList>
 
       <TimelineList>
-        {completedItems.map((completedItem, index) => (
+        {changelog?.completed?.map((item, index) => (
           <TimelineItem
             key={index}
-            title={completedItem.title}
-            meta={new Date(completedItem.date).toLocaleDateString(
-              meta.openGraph?.locale,
+            title={item.title}
+            meta={new Date(item.date).toLocaleDateString(
+              meta.openGraph?.locale || "en-US",
               {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
               }
             )}
-            content={`<p>${completedItem.description}</p>`}
+            content={`<p>${item.description}</p>`}
           />
         ))}
       </TimelineList>
@@ -64,17 +73,3 @@ const Changelog: React.FC<ChangelogProps> = ({
 };
 
 export default Changelog;
-
-export const getStaticProps: GetStaticProps = async () => {
-  const filePath = path.join(process.cwd(), "data", "changelog.json");
-  const jsonData = await fs.readFile(filePath);
-  const data = JSON.parse(jsonData.toString());
-
-  return {
-    props: {
-      completedItems: data.completed,
-      activeItems: data.active,
-    },
-    revalidate: 1800,
-  };
-};

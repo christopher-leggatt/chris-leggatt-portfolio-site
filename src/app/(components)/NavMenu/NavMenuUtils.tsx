@@ -1,9 +1,20 @@
 // "use client";
 // Debug
 import Link from "next/link";
-import { NavLinkProps, RenderNavLinkProps } from "@/app/interfaces";
 import { usePathname } from "next/navigation";
 import { customMetadata } from "@/app/data/metadata";
+
+interface NavLinkProps {
+  href: string;
+  text: string;
+  isExternal?: boolean;
+  className?: boolean;
+}
+
+interface RenderNavLinkProps {
+  item: NavLinkProps;
+  isMobile: boolean;
+}
 
 export const linksArray: NavLinkProps[] = [
   { href: "/", text: "Home", isExternal: false },
@@ -13,56 +24,6 @@ export const linksArray: NavLinkProps[] = [
   { href: customMetadata.resume, text: "Resume", isExternal: true },
   { href: "/toolbox", text: "Toolbox", isExternal: false },
 ];
-
-// export const renderNavLink = (item: NavLinkProps, index: number) => {
-//   if (item.isExternal) {
-//     return (
-//       <li key={index}>
-//         <a href={item.href} className="hover:text-teal-400 dark:hover:text-teal-500" target="_blank" rel="noopener noreferrer">
-//           {item.text}
-//         </a>
-//       </li>
-//     );
-//   } else {
-//     return (
-//       <li key={index}>
-//         <Link href={item.href} passHref>
-//           <span className="hover:text-teal-400 dark:hover:text-teal-500">
-//             {item.text}
-//           </span>
-//         </Link>
-//       </li>
-//     );
-//   }
-// };
-
-// export const NavLink: React.FC<NavLinkProps> = ({ href, text }) => {
-//   const { animatedRoute } = useAnimatedRouter();
-//   const pathname = usePathname();
-//   const isActive = pathname === href;
-
-//   return (
-//     <li>
-//       <Link
-//         href={href}
-//         onClick={() => {
-//           animatedRoute(href);
-//         }}
-//         passHref
-//       >
-//         <span
-//           className={`${
-//             isActive
-//               ? "font-bold text-teal-500 dark:text-teal-400"
-//               : "font-normal text-gray-500 dark:text-gray-400"
-//           } 'hidden md:inline-block rounded-full hover:text-gray-900 dark:hover:text-gray-200 transition-all`}
-//         >
-//           {text}
-//         </span>
-//       </Link>
-//     </li>
-//   );
-// };
 
 export const RenderNavLink: React.FC<RenderNavLinkProps> = ({
   item,
@@ -82,7 +43,7 @@ export const RenderNavLink: React.FC<RenderNavLinkProps> = ({
   }`;
 
   const linkContent = item.isExternal ? (
-    <a      
+    <a
       href={item.href}
       className={linkClass}
       target="_blank"
@@ -91,10 +52,7 @@ export const RenderNavLink: React.FC<RenderNavLinkProps> = ({
       {item.text}
     </a>
   ) : (
-    <Link      
-      href={item.href}
-      passHref
-    >
+    <Link href={item.href} passHref>
       <span className={linkClass}>{item.text}</span>
     </Link>
   );

@@ -1,7 +1,7 @@
 import { customMetadata } from "@/app/data/metadata";
 import { FiGithub as Github, FiCodepen as Codepen } from "react-icons/fi";
 import { AiOutlineLinkedin as Linkedin } from "react-icons/ai";
-import { FooterNavigation } from "@/app/interfaces";
+import { FooterNavigation } from "@/interfaces";
 
 export const footerNavigation: FooterNavigation = {
   general: [
@@ -9,9 +9,7 @@ export const footerNavigation: FooterNavigation = {
     { name: "About", href: "/about" },
     { name: "Projects", href: "/projects" },
   ],
-  specifics: [
-    { name: "Toolbox", href: "/toolbox" },
-  ],
+  specifics: [{ name: "Toolbox", href: "/toolbox" }],
   extra: [
     { name: "Changelog", href: "/changelog" },
     { name: "Meet up", href: "/meetup" },

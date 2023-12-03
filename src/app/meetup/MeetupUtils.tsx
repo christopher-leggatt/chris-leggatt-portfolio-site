@@ -1,4 +1,9 @@
-import { MeetupItemProps } from "../interfaces";
+interface MeetupItemProps {
+  id?: string;
+  name?: string;
+  link: string;
+  checked: boolean;
+}
 
 export const MeetupItem: React.FC<MeetupItemProps> = ({
   id,

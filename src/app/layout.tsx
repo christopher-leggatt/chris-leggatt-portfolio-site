@@ -7,10 +7,14 @@ import NavMenu from "@/app/(components)/NavMenu";
 import Image from "next/image";
 import Providers from "./providers";
 import { Metadata } from "next";
-import { LayoutProps } from "./interfaces";
+import { ReactNode } from "react";
 
 const defaultBaseUrl = "http://localhost:3000";
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || defaultBaseUrl;
+
+interface LayoutProps {
+  children: ReactNode;
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

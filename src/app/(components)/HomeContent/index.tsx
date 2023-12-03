@@ -3,7 +3,7 @@ import Button from "../buttons/Button";
 import { useRouter } from "next/navigation";
 import Image from "next/legacy/image";
 import { customMetadata } from "@/app/data/metadata";
-import { ButtonType } from '@/app/enums';
+import { ButtonType } from "@/enums";
 
 const HomeContent = () => {
   const { push } = useRouter();
