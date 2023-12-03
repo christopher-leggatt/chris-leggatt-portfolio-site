@@ -1,5 +1,9 @@
 import ArrowForwardAnimated from "@/app/(components)/icons/ArrowForwardAnimated";
-import { ProjectButtonLinkProps } from "../types";
+
+type ProjectButtonLinkProps = {
+  text: string;
+  href: string;
+};
 
 const ProjectButtonLink: React.FC<ProjectButtonLinkProps> = ({
   text,

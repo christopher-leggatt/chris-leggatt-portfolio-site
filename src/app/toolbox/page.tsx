@@ -1,6 +1,21 @@
 import PopoverLink from "@/app/(components)/PopoverLink";
 import { getToolbox } from "@/lib/toolbox-db";
-import { ToolboxProps } from "../interfaces";
+import { mongoose } from "@typegoose/typegoose";
+
+interface ToolboxItem {
+  url: string;
+  title: string;
+  types: string[];
+  description: string;
+}
+
+interface ToolboxProps {
+  software: ToolboxItem[];
+  tech_stack: ToolboxItem[];
+  site: ToolboxItem[];
+  _id: mongoose.Types.ObjectId | string;
+}
+
 
 export const metadata = {
   title: "Home",

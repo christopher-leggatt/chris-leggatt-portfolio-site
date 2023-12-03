@@ -1,7 +1,15 @@
-'use client';
+"use client";
 import { ReactNode } from "react";
 import { TimelineBullet } from "../icons/TimelineBullet";
-import { TimelineItemProps } from "@/app/interfaces";
+
+interface TimelineItemProps {
+  title: string;
+  meta: string;
+  link?: string | undefined | null;
+  meta_small?: string;
+  content: any;
+  children?: ReactNode;
+}
 
 export const TimelineList = ({ children }: { children: ReactNode }) => {
   return <div>{children}</div>;

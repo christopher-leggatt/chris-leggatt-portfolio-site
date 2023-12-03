@@ -18,19 +18,7 @@ export async function GET(req: NextRequest) {
     };
 
     return NextResponse.json(json_response);
-
-    // res.status(200).json({ experience });
-  } catch (error: any) {    
+  } catch (error: any) {
     return createErrorResponse(error.message, 500);
   }
 }
-
-// export async function GET(NextRequest) {
-//   try {
-//     const experience = await Experience.find();
-
-// return NextResponse.json({ experience }, { status: 200 });
-//   } catch (error) {
-// return NextResponse.json({ message: "Error", error }, { status: 500 });
-//   }
-// }
