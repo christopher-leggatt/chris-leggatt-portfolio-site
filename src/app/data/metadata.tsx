@@ -6,7 +6,7 @@ export const customMetadata = {
   codepen: "https://codepen.io/cleggattdev",
   linkedin: "https://www.linkedin.com/in/christopherjamesleggatt/",
   capstone: "https://bkgbgxhzfw.us-east-2.awsapprunner.com/",
-  resume: "/static/christopher_leggatt_resume.pdf",
+  resume: "/christopher_leggatt_resume.pdf",
   avatarUrl: "/chris_leggatt_portfolio_site_pic.jpg",
   author: 'Chris Leggatt'
 
