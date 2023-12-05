@@ -2,7 +2,8 @@ import Image from "next/image";
 import ButtonLink from "./ProjectButtonLink";
 import { customMetadata } from "../data/metadata";
 import CapstoneImage from "@/app/assets/images/projects_convenient_cannabis.png";
-import PortfolioImage from '@/app/assets/images/projects_portfolio_site.png';
+import PortfolioImage from "@/app/assets/images/projects_portfolio_site.png";
+import PopoverLink from "../(components)/PopoverLink";
 
 export const metadata = {
   title: "Projects",
@@ -16,7 +17,7 @@ const Projects: React.FC = () => {
           Projects
         </span>
         <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
-          A selection of my work(s). (More to come.)
+          An exhaustive collection of my work(s). (More to come.)
         </span>
       </h1>
 
@@ -27,9 +28,9 @@ const Projects: React.FC = () => {
             <div className="self-end col-span-1 m-8 text-center md:text-left">
               <h2 className="mt-0">Convenient Cannabis E-commerce site</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam.
+                My capstone project for BrainStation&apos;s SE course. A full
+                stack website created with a friend&apos;s cannabis dispensary
+                in mind.
               </p>
               <ButtonLink
                 text="Visit Convenient Cannabis"
@@ -67,14 +68,15 @@ const Projects: React.FC = () => {
           <div className="self-center order-first col-span-1 m-8 text-center md:order-last md:text-left">
             <h2 className="mt-0">Portfolio Site</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam.
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              "<PopoverLink href="https://knowyourmeme.com/memes/xzibit-yo-dawg">Yo dawg,</PopoverLink> I herd you like portfolio sites..." My second major
+              project, included here, until I complete another project or two.
+              Stay tuned!
             </p>
             <ButtonLink
               text="Visit Portfolio Site"
               href={customMetadata.capstone}
-              />
+            />
           </div>
         </div>
       </div>

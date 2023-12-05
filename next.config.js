@@ -3,14 +3,16 @@
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const nextConfig = {
-  images: {
-    domains: [
-      "iad.microlink.io", // link preview
-    ],
+  images: {    
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.loom.com",
+      },
+      {
+        protocol: "https",
+        hostname: "iad.microlink.io", // link preview
+
       },
     ],
   },
