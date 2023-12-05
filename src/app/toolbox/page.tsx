@@ -16,9 +16,8 @@ interface ToolboxProps {
   _id: mongoose.Types.ObjectId | string;
 }
 
-
 export const metadata = {
-  title: "Home",
+  title: "Toolbox",
 };
 
 const Toolbox = async () => {
