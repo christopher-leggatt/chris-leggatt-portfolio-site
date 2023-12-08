@@ -1,5 +1,5 @@
-'use client';
-import { motion, useReducedMotion } from "framer-motion";
+"use client";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 const variants = {
@@ -17,13 +17,10 @@ const variants = {
   },
 };
 
-export default function PageTransition({ children }: { children: ReactNode }) {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) return <>{children}</>;
+export default function RootTemplate({ children }: { children: ReactNode }) {
   return (
     <motion.div initial="initial" animate="enter" variants={variants}>
       {children}
     </motion.div>
   );
-}
+};

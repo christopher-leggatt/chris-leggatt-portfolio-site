@@ -1,13 +1,13 @@
 import "@/app/styles/globals.css";
 import "@/app/styles/codeblocks.css";
 import "@/app/styles/custom-styles.css";
+import Providers from "./providers";
+import { Metadata } from "next";
+import { ReactNode } from "react";
 import Rays from "@/app/assets/images/portfolio_rays.png";
 import Footer from "@/app/(components)/Footer";
 import NavMenu from "@/app/(components)/NavMenu";
 import Image from "next/image";
-import Providers from "./providers";
-import { Metadata } from "next";
-import { ReactNode } from "react";
 
 const defaultBaseUrl = "http://localhost:3000";
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || defaultBaseUrl;

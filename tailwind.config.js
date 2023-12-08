@@ -32,6 +32,7 @@ module.exports = {
         fuchsia: colors.fuchsia,
         amber: colors.amber,
         sky: colors.sky,
+        overlay: "#801e293b",
       },
       width: {
         'custom': 'calc(100% + 2rem)', 
