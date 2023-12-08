@@ -1,7 +1,6 @@
 import { customMetadata } from "@/app/data/metadata";
 import { FiGithub as Github, FiCodepen as Codepen } from "react-icons/fi";
 import { AiOutlineLinkedin as Linkedin } from "react-icons/ai";
-// import { FooterNavigation } from "@/interfaces";
 
 export const footerNavigation = {
   general: [
