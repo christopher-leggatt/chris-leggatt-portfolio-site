@@ -1,12 +1,11 @@
 import "@/app/styles/globals.css";
 import "@/app/styles/codeblocks.css";
-import "@/app/styles/custom-styles.css";
 import Providers from "./providers";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 import Rays from "@/app/assets/images/portfolio_rays.png";
 import Footer from "@/app/(components)/Footer";
-import NavMenu from "@/app/(components)/NavMenu";
+import NavMenu from "@/app/(components)/NavMenu/NavMenu";
 import Image from "next/image";
 
 const defaultBaseUrl = "http://localhost:3000";

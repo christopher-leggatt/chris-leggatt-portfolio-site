@@ -1,5 +1,4 @@
 "use client";
-// Debug
 import NextLink from "next/link";
 import { customMetadata } from "@/app/data/metadata";
 import { footerNavigation } from "./FooterUtils";

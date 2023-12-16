@@ -1,4 +1,3 @@
-import React from 'react';
 import { ButtonType } from "@/types/enums";
 
 const ArrowForward = ({ buttonType }: { buttonType: ButtonType }) => {

@@ -107,7 +107,7 @@ pre {
 }
 
 /* Show appropriate flavor of code block */
-.language-tab {
+/* .language-tab {
   position: relative;
   -webkit-overflow-scrolling: touch;
 }
@@ -117,4 +117,4 @@ pre {
 
 .language-tab pre[class*='language-']::before {
   @apply absolute right-0 px-4 py-1 text-sm text-right uppercase rounded-t-lg text-blueGray-500 dark:text-gray-300 -top-6;
-}
+} */

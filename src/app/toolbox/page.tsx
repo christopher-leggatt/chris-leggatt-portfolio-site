@@ -1,4 +1,4 @@
-import PopoverLink from "@/app/(components)/PopoverLink";
+import PopoverLink from "@/app/(components)/PopoverLink/PopoverLink";
 import { getToolbox } from "@/lib/toolbox-db";
 import { mongoose } from "@typegoose/typegoose";
 

@@ -1,5 +1,3 @@
-// "use client";
-// Debug
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { customMetadata } from "@/app/data/metadata";
