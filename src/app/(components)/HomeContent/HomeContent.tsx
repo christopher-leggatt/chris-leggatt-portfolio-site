@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/app/(components)/buttons/Button";
-import ButtonLink, { ButtonLinkProps } from "@/app/(components)/buttons/ButtonLink";
+import ButtonLink from "@/app/(components)/buttons/ButtonLink";
 import { useRouter } from "next/navigation";
 import Image from "next/legacy/image";
 import { customMetadata } from "@/app/data/metadata";
@@ -19,7 +19,7 @@ const HomeContent = () => {
             dedicated and passionate software engineer, with a background in
             quality control.{" "}
           </h1>
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 rounded-full">
             <Image
               alt="Chris Leggatt"
               height={160}
@@ -28,9 +28,7 @@ const HomeContent = () => {
               placeholder="blur"
               blurDataURL={customMetadata.avatarUrl}
               className="col-span-1 rounded-full"
-              // Debug
               layout="fixed"
-              // Debug
             />
           </div>
         </div>

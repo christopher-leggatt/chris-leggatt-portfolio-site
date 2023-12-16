@@ -1,9 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import ButtonLink from "./ProjectButtonLink";
 import { customMetadata } from "../data/metadata";
 import CapstoneImage from "@/app/assets/images/projects_convenient_cannabis.png";
 import PortfolioImage from "@/app/assets/images/projects_portfolio_site.png";
-import PopoverLink from "../(components)/PopoverLink";
+import PopoverLink from "../(components)/PopoverLink/PopoverLink";
 
 export const metadata = {
   title: "Projects",
@@ -67,11 +68,13 @@ const Projects: React.FC = () => {
           </div>
           <div className="self-center order-first col-span-1 m-8 text-center md:order-last md:text-left">
             <h2 className="mt-0">Portfolio Site</h2>
-            <p>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              "<PopoverLink href="https://knowyourmeme.com/memes/xzibit-yo-dawg">Yo dawg,</PopoverLink> I herd you like portfolio sites..." My second major
-              project, included here, until I complete another project or two.
-              Stay tuned!
+            <p>"
+              <PopoverLink href="https://knowyourmeme.com/memes/xzibit-yo-dawg">
+                Yo dawg,
+              </PopoverLink>{" "}
+              I herd you like portfolio sites..." My second major project,
+              included here, until I complete another project or two. Stay
+              tuned!
             </p>
             <ButtonLink
               text="Visit Portfolio Site"

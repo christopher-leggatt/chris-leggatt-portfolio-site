@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { customMetadata } from "@/app/data/metadata";
 import Image from "next/image";
-import PopoverLink from "@/app/(components)/PopoverLink";
+import PopoverLink from "@/app/(components)/PopoverLink/PopoverLink";
 import ButtonLink from "../(components)/buttons/ButtonLink";
 import { ToolboxButton } from "./AboutClient";
 import { TimelineItem, TimelineList } from "../(components)/Timeline/Timeline";
@@ -28,12 +28,17 @@ const About = async () => {
         </span>
       </h1>
       <p>
-        I'm Chris, a full stack developer and <PopoverLink href={customMetadata.codepen}>creative coder</PopoverLink>, transitioning from
-        the world of automotive manufacturing and quality control. My journey
-        has been driven by a lifelong passion for learning and an innate ability
-        to adapt and solve problems, a trait I've honed due to my <PopoverLink href="https://en.wikipedia.org/wiki/Constriction_ring_syndrome">limb differences.</PopoverLink>
-        These experiences have not just shaped my approach to
-        challenges but also fueled my curiosity in technology.
+        I'm Chris, a full stack developer and{" "}
+        <PopoverLink href={customMetadata.codepen}>creative coder</PopoverLink>,
+        transitioning from the world of automotive manufacturing and quality
+        control. My journey has been driven by a lifelong passion for learning
+        and an innate ability to adapt and solve problems, a trait I've honed
+        due to my{" "}
+        <PopoverLink href="https://en.wikipedia.org/wiki/Constriction_ring_syndrome">
+          limb differences.
+        </PopoverLink>
+        These experiences have not just shaped my approach to challenges but
+        also fueled my curiosity in technology.
       </p>
       <p>
         My career in the industrial sector, spanning nearly two decades, has
@@ -57,9 +62,16 @@ const About = async () => {
           I've always been intrigued by the intersection of technology and
           creativity, finding joy in sketching, drumming, and reading. The world
           of coding and computer science, once a distant fascination, became a
-          tangible goal as I dabbled in <PopoverLink href={experience![1].company_url}>online coding modules</PopoverLink> and began building
-          my first projects. This exploration led me to enroll in BrainStation's
-          <PopoverLink href="https://brainstation.io/online/software-engineering-bootcamp">Software Engineering course - </PopoverLink>one of the best decisions I've ever made.
+          tangible goal as I dabbled in{" "}
+          <PopoverLink href={experience![1].company_url}>
+            online coding modules
+          </PopoverLink>{" "}
+          and began building my first projects. This exploration led me to
+          enroll in BrainStation's
+          <PopoverLink href="https://brainstation.io/online/software-engineering-bootcamp">
+            Software Engineering
+          </PopoverLink>{" "}course
+          - one of the best decisions I've ever made.
         </p>
         <p>
           The intensive program at BrainStation was a catalyst in my
@@ -68,12 +80,14 @@ const About = async () => {
           equipped me with a clear vision for my future in the tech industry.
         </p>
         <p>
-          Today, I'm <PopoverLink href={customMetadata.linkedin}>#opentowork,</PopoverLink> enthusiastic about embarking on new projects
-          and collaborations. I am eager to dive into new programming languages,
-          connect with like-minded individuals in the tech community, and hone
-          my code-jutsu. With my blend of industrial experience and fresh
-          software engineering skills, I am ready to contribute, learn, and grow
-          in this new chapter of my career 😊
+          Today, I'm{" "}
+          <PopoverLink href={customMetadata.linkedin}>#opentowork,</PopoverLink>{" "}
+          enthusiastic about embarking on new projects and collaborations. I am
+          eager to dive into new programming languages, connect with like-minded
+          individuals in the tech community, and hone my code-jutsu. With my
+          blend of industrial experience and fresh software engineering skills,
+          I am ready to contribute, learn, and grow in this new chapter of my
+          career 😊
         </p>
         <div></div>
       </div>
