@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import NextLink from "next/link";
 import Image from "next/image";
 import { usePlausible } from "next-plausible";
@@ -12,6 +12,8 @@ interface PopoverLinkProps {
 const PopoverLink: React.FC<PopoverLinkProps> = ({ children, href }) => {
   const [imagePreview, setImagePreview] = useState("");
   const [isHovering, setIsHovering] = useState(false);
+  const linkRef = useRef<HTMLSpanElement>(null);
+  const [popoverTransform, setPopoverTransform] = useState("");
   let inImagePreview = false;
   let inLink = false;
   const plausible = usePlausible();
@@ -34,6 +36,21 @@ const PopoverLink: React.FC<PopoverLinkProps> = ({ children, href }) => {
   let handleMouseEnterLink = () => {
     inLink = true;
     setIsHovering(true);
+    var translateX;
+    if (linkRef.current) {
+      const linkRect = linkRef.current.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const popoverWidthHalf = 112;
+      if (linkRect.left < popoverWidthHalf) {
+        translateX = popoverWidthHalf - linkRect.left;
+        setPopoverTransform(`translateX(${translateX}px)`);
+      } else if (viewportWidth - linkRect.right < popoverWidthHalf) {
+        translateX = popoverWidthHalf - (viewportWidth - linkRect.right);
+        setPopoverTransform(`translateX(-${translateX}px)`);
+      } else {
+        setPopoverTransform(`translateX(-50px)`);
+      }
+    }
   };
 
   let handleMouseLeaveLink = () => {
@@ -58,10 +75,13 @@ const PopoverLink: React.FC<PopoverLinkProps> = ({ children, href }) => {
   }, [href, handleFetchImage]);
 
   return (
-    <span>
+    <span ref={linkRef} onMouseEnter={handleMouseEnterLink}>
       <span className="relative z-10 hidden md:inline-block">
+        {/* possibly adjust z-index here */}
         <NextLink
           href={href}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`${isHovering && "underline"}`}
           onMouseEnter={handleMouseEnterLink}
           onMouseLeave={handleMouseLeaveLink}
@@ -71,9 +91,16 @@ const PopoverLink: React.FC<PopoverLinkProps> = ({ children, href }) => {
           {children}
         </NextLink>
         {isHovering && (
-          <NextLink href={href} passHref>
+          <NextLink
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            passHref
+          >
             <span
-              className="w-56 h-44 absolute top-[-195px] left-1/2 transform -translate-x-[7rem] translate-y-8 flex items-start justify-center"
+              style={{ transform: popoverTransform }}
+              className="w-56 h-44 absolute top-[-195px] translate-y-8 flex items-center justify-center"
+              // className="w-56 h-44 absolute top-[-195px] left-1/2 transform -translate-x-[7rem] translate-y-8 flex items-center justify-center"
               onMouseLeave={handleMouseLeaveImage}
               onMouseEnter={handleMouseEnterImage}
               onFocus={handleMouseEnterImage}
@@ -98,6 +125,8 @@ const PopoverLink: React.FC<PopoverLinkProps> = ({ children, href }) => {
       </span>
       <a
         href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`${isHovering && "underline"} md:hidden`}
         onMouseEnter={handleMouseEnterLink}
         onMouseLeave={handleMouseLeaveLink}
