@@ -8,7 +8,7 @@ import {
   } from "@typegoose/typegoose";
   import mongoose from "mongoose";
   
-  class Item { // Represents individual changelog items
+  class ChangelogItem { // Represents individual changelog items
     @prop({ required: true })
     public title!: string;
   
@@ -44,11 +44,11 @@ import {
   })
   @index({ title: 1 }) // Creates an index on the title field for faster queries
   class ChangelogClass {
-    @prop({ required: true, type: () => [Item] })
-    public upcoming!: Item[];
+    @prop({ required: true, type: () => [ChangelogItem] })
+    public upcoming!: ChangelogItem[];
   
-    @prop({ required: true, type: () => [Item] })
-    public completed!: Item[];   
+    @prop({ required: true, type: () => [ChangelogItem] })
+    public completed!: ChangelogItem[];   
   
     _id: mongoose.Types.ObjectId | string;
   
