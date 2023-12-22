@@ -22,7 +22,7 @@ jobs:
         echo "$DEPLOY_SSH_KEY" > $SSH_KEY_FILE
         chmod 600 $SSH_KEY_FILE
         ssh -o "StrictHostKeyChecking=no" -i $SSH_KEY_FILE ubuntu@$EC2_HOST << 'ENDSSH'
-        cd /repos/chris-leggatt-portfolio-site/
+        cd ~/repos/chris-leggatt-portfolio-site/
         git pull origin main
         npm install
         npm run build
