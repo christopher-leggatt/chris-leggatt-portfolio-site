@@ -36,13 +36,11 @@ const Toolbox = async () => {
         <div className="space-y-12">
           <h2>Software</h2>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-            {toolbox.software &&
-              toolbox.software.length > 0 &&
-              toolbox.software.map((item, index) => (
+            {toolbox?.software?.map((item, index) => (
                 <div key={`${item.url}${index}`}>
                   <h3 className="m-0 text-xl font-medium">{item.title}</h3>
                   <div className="block space-x-4">
-                    {item.types.map((tag: string) => (
+                    {item?.types?.map((tag) => (
                       <span key={tag} className="text-sm">
                         #{tag}
                       </span>
@@ -63,13 +61,11 @@ const Toolbox = async () => {
         <div className="space-y-12">
           <h2>Tech Stack</h2>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-            {toolbox.tech_stack &&
-              toolbox.tech_stack.length > 0 &&
-              toolbox.tech_stack.map((item, index) => (
+            {toolbox?.tech_stack?.map((item, index) => (
                 <div key={`${item.url}${index}`}>
                   <h3 className="m-0 text-xl font-medium">{item.title}</h3>
                   <div className="block space-x-4">
-                    {item.types.map((tag: string) => (
+                    {item?.types?.map((tag) => (
                       <span key={tag} className="text-sm">
                         #{tag}
                       </span>
@@ -90,13 +86,11 @@ const Toolbox = async () => {
         <div className="space-y-12">
           <h2>This Site</h2>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-            {toolbox.site &&
-              toolbox.site.length > 0 &&
-              toolbox.site.map((item, index) => (
+            {toolbox?.site?.map((item, index) => (
                 <div key={`${item.url}${index}`}>
                   <h3 className="m-0 text-xl font-medium">{item.title}</h3>
                   <div className="block space-x-4">
-                    {item.types.map((tag: string) => (
+                    {item?.types?.map((tag) => (
                       <span key={tag} className="text-sm">
                         #{tag}
                       </span>
