@@ -8,7 +8,7 @@ import {
 } from "@typegoose/typegoose";
 import mongoose from "mongoose";
 
-@post<ExperienceClass>("save", function (doc) {
+@post<ExperienceClass>("save", function (doc) { 
   if (doc) {
     doc.id = doc._id.toString();
     doc._id = doc.id;
@@ -32,7 +32,9 @@ import mongoose from "mongoose";
     allowMixed: Severity.ALLOW,
   },
 })
+
 @index({ title: 1 })
+
 class ExperienceClass {
   @prop({ required: true })
   title: string;

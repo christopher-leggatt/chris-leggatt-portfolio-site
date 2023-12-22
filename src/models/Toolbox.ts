@@ -48,13 +48,13 @@ class Item {
 @index({ title: 1 })
 class ToolboxClass {
   @prop({ required: true, type: () => [Item] })
-  public site!: Item[];
+  public site: Item[];
 
   @prop({ required: true, type: () => [Item] })
-  public software!: Item[];
+  public software: Item[];
 
   @prop({ required: true, type: () => [Item] })
-  public tech_stack!: Item[];
+  public tech_stack: Item[];
 
   _id: mongoose.Types.ObjectId | string;
 

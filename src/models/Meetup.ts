@@ -8,7 +8,7 @@ import {
 } from "@typegoose/typegoose";
 import mongoose from "mongoose";
 
-@post<MeetupClass>("save", function (doc) {
+@post<MeetupClass>("save", function (doc) { 
   if (doc) {
     doc.id = doc._id.toString();
     doc._id = doc.id;
