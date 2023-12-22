@@ -9,18 +9,18 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Deploy to EC2
-    env:
-    DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-    EC2_HOST: ${{ secrets.EC2_HOST }}
-      run: |
-        ssh -o "StrictHostKeyChecking=no" -i <(echo "$DEPLOY_SSH_KEY") ubuntu@$EC2_HOST << 'ENDSSH'
-    cd /repos/chris-leggatt-portfolio-site/
-    git pull origin main
-    npm install
-    npm run build
-    pm2 restart all
-    ENDSSH
+      - name: Deploy to EC2
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          ssh -o "StrictHostKeyChecking=no" -i <(echo "$DEPLOY_SSH_KEY") ubuntu@$EC2_HOST << 'ENDSSH'
+          cd /repos/chris-leggatt-portfolio-site/
+          git pull origin main
+          npm install
+          npm run build
+          pm2 restart all
+          ENDSSH
