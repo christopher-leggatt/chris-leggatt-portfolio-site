@@ -1,6 +1,7 @@
 import PopoverLink from "@/app/(components)/PopoverLink/PopoverLink";
 import { getToolbox } from "@/lib/toolbox-db";
 import { mongoose } from "@typegoose/typegoose";
+import { GetServerSideProps } from "next";
 
 interface ToolboxItem {
   url: string;
@@ -20,9 +21,7 @@ export const metadata = {
   title: "Toolbox",
 };
 
-const Toolbox = async () => {
-  const { toolbox } = (await getToolbox()) as { toolbox: ToolboxProps };
-
+const Toolbox = ({ toolbox }: { toolbox: ToolboxProps }) => {
   console.log("Toolbox:", toolbox);
   console.log("Toolbox Software:", toolbox?.software);
 
@@ -127,3 +126,16 @@ const Toolbox = async () => {
 };
 
 export default Toolbox;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { toolbox } = (await getToolbox()) as { toolbox: ToolboxProps };
+
+  console.log("getServerSideProps Toolbox:", toolbox);
+  console.log("getServerSideProps Toolbox Software:", toolbox?.software);
+
+  return {
+    props: {
+      toolbox,
+    },
+  };
+};
