@@ -16,8 +16,14 @@ export async function GET(req: NextRequest) {
       status: "success",
       toolbox,
     };
-
-    return NextResponse.json(json_response);
+    // Creates a new NextResponse with the JSON data and set the Cache-Control header to 0 seconds,
+    // so that the response is never cached.
+    return new NextResponse(NextResponse.json(json_response).body, {
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "s-maxage=0",
+      },
+    });
   } catch (error: any) {
     return createErrorResponse(error.message, 500);
   }
