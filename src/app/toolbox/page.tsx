@@ -22,6 +22,10 @@ export const metadata = {
 
 const Toolbox = async () => {
   const { toolbox } = (await getToolbox()) as { toolbox: ToolboxProps };
+
+  console.log("Toolbox:", toolbox);
+  console.log("Toolbox Software:", toolbox?.software);
+
   return (
     <>
       <h1>
@@ -36,7 +40,9 @@ const Toolbox = async () => {
         <div className="space-y-12">
           <h2>Software</h2>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-            {toolbox?.software?.map((item, index) => (
+            {toolbox?.software &&
+              toolbox.software.length > 0 &&
+              toolbox.software.map((item, index) => (
                 <div key={`${item.url}${index}`}>
                   <h3 className="m-0 text-xl font-medium">{item.title}</h3>
                   <div className="block space-x-4">
@@ -47,12 +53,15 @@ const Toolbox = async () => {
                     ))}
                   </div>
                   <div className="mt-4">
-                    <p className="m-0 mb-3 text-base">{item.description}</p>
-                    {item.url && (
-                      <span className="text-base">
-                        <PopoverLink href={item.url}>Check it out</PopoverLink>
-                      </span>
-                    )}
+                    <p className="text-gray-500">{item.description}</p>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      Learn More
+                    </a>
                   </div>
                 </div>
               ))}
@@ -61,7 +70,9 @@ const Toolbox = async () => {
         <div className="space-y-12">
           <h2>Tech Stack</h2>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-            {toolbox?.tech_stack?.map((item, index) => (
+            {toolbox?.tech_stack &&
+              toolbox.tech_stack.length > 0 &&
+              toolbox.tech_stack.map((item, index) => (
                 <div key={`${item.url}${index}`}>
                   <h3 className="m-0 text-xl font-medium">{item.title}</h3>
                   <div className="block space-x-4">
@@ -86,7 +97,9 @@ const Toolbox = async () => {
         <div className="space-y-12">
           <h2>This Site</h2>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-            {toolbox?.site?.map((item, index) => (
+            {toolbox?.site &&
+              toolbox.site.length > 0 &&
+              toolbox.site.map((item, index) => (
                 <div key={`${item.url}${index}`}>
                   <h3 className="m-0 text-xl font-medium">{item.title}</h3>
                   <div className="block space-x-4">
