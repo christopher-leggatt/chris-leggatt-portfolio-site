@@ -28,15 +28,6 @@ jobs:
           npm ci
           npm run build
 
-      - name: Transfer build artifacts
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ".next"
-          target: "~/repos/chris-leggatt-portfolio-site/.next"
-
       - name: SSH and deploy
         uses: appleboy/ssh-action@master
         with:
