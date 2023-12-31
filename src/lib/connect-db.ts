@@ -25,12 +25,12 @@ if (!cached) {
 }
 
 async function connectDB() {
-  if (cached.conn && process.env.NODE_ENV !== 'production') {
+  if (cached.conn) {
     console.log("🚀 Using cached connection");
     return cached.conn;
   }
 
-  if (!cached.promise && process.env.NODE_ENV === 'production') {
+  if (!cached.promise) {
     const opts = {
       bufferCommands: false,
     };
