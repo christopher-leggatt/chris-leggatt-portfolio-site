@@ -5,7 +5,7 @@ import { stringToObjectId } from "./utils";
 export async function getMeetup() {
   try {
     await connectDB();
-    const Meetups = await Meetup.find().lean();
+    const Meetups = await Meetup?.find().lean();
 
     return {
       meetup: Meetups,
