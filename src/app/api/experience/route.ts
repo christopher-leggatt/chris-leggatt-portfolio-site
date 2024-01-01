@@ -3,6 +3,8 @@ import { getExperience } from "@/lib/experience-db";
 import { NextResponse, NextRequest } from "next/server";
 import { createErrorResponse } from "@/lib/utils";
 
+export const revalidate = 0;
+
 export async function GET(req: NextRequest) {
   try {
     await connectDB();
