@@ -37,4 +37,6 @@ jobs:
           script: |
             cd ~/repos/chris-leggatt-portfolio-site/
             git pull origin main
+            npm ci
+            npm run build
             pm2 restart all
