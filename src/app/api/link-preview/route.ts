@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import mql from "@microlink/mql";
 import { createErrorResponse } from "@/lib/utils";
 
-export const revalidate = 0;
+export const revalidate = 1;
 
 export async function GET(req: NextRequest, res: NextResponse) {
   try {

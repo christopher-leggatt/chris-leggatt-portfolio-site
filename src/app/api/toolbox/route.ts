@@ -3,7 +3,7 @@ import { getToolbox } from "@/lib/toolbox-db";
 import { NextResponse, NextRequest } from "next/server";
 import { createErrorResponse } from "@/lib/utils";
 
-export const revalidate = 0;
+export const revalidate = 1;
 
 export async function GET(req: NextRequest) {
   try {
