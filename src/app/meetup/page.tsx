@@ -1,13 +1,25 @@
 import { customMetadata } from "../data/metadata";
 import { MeetupItem } from "./MeetupUtils";
 import { getMeetup } from "@/lib/meetup-db";
+import { mongoose } from "@typegoose/typegoose";
+
+interface MeetupItem {
+  name: string;
+  link: string;
+  checked: boolean;
+  _id: mongoose.Types.ObjectId | string;
+}
+
+interface MeetupProps {
+  meetup: MeetupItem[];
+}
 
 export const metadata = {
   title: "Meetup",
 };
 
 const Meetup = async () => {
-  const { meetup } = await getMeetup();
+  const { meetup } = (await getMeetup()) as MeetupProps;
   return (
     <>
       <h1>
@@ -33,7 +45,7 @@ const Meetup = async () => {
             <div className="grid grid-cols-3">
               {meetup &&
                 meetup.length > 0 &&
-                meetup.map((item, index) => (
+                meetup?.map((item, index) => (
                   <MeetupItem
                     key={index}
                     id={`item-${index}`}

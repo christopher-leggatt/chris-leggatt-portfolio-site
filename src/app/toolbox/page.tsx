@@ -22,7 +22,7 @@ export const metadata = {
 
 const Toolbox = async () => {
   console.log("Fetching toolbox data...");
-  const { toolbox } = (await getToolbox()) as { toolbox: ToolboxProps };
+  const { toolbox } = (await getToolbox()) as { toolbox?: ToolboxProps };
   console.log("Toolbox:", toolbox);
   console.log("Toolbox Software:", toolbox?.software);
 

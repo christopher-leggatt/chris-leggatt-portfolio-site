@@ -9,13 +9,27 @@ import { getExperience } from "@/lib/experience-db";
 import { ButtonType } from "@/types/enums";
 import AboutProfile from "@/app/assets/images/about_profile.jpg";
 import Hardware from "@/app/assets/images/hardware.webp";
+import { mongoose } from "@typegoose/typegoose";
+
+interface ExperienceItem {
+  title: string;
+  company: string;
+  company_url: string;
+  duration: string;
+  description: string;
+  _id: mongoose.Types.ObjectId | string;
+}
+
+interface ExperienceProps {
+  experience: ExperienceItem[];
+}
 
 export const metadata = {
   title: "About",
 };
 
 const About = async () => {
-  const { experience } = await getExperience();
+  const { experience } = (await getExperience()) as ExperienceProps;
 
   return (
     <>
@@ -97,7 +111,7 @@ const About = async () => {
         <p>Here's a brief rundown of my most recent experiences.</p>
         {experience && experience.length > 0 && (
           <TimelineList>
-            {experience.map((item, index) => (
+            {experience?.map((item, index) => (
               <TimelineItem
                 key={index}
                 title={item.title}
