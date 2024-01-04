@@ -18,7 +18,6 @@ export const linksArray: NavLinkProps[] = [
   { href: "/", text: "Home", isExternal: false },
   { href: "/about", text: "About", isExternal: false },
   { href: "/projects", text: "Projects", isExternal: false },
-  // Debug
   { href: customMetadata.resume, text: "Resume", isExternal: true },
   { href: "/toolbox", text: "Toolbox", isExternal: false },
 ];

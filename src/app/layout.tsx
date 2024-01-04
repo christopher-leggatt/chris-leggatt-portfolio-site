@@ -51,7 +51,10 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body className="prose-headings:font-headings">
+      <body
+        suppressHydrationWarning={true}
+        className="prose-headings:font-headings"
+      >
         <Providers>
           <div className={` bg-white dark:bg-dark min-h-screen`}>
             <NavMenu />

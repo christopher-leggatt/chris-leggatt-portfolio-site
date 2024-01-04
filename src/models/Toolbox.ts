@@ -8,14 +8,14 @@ import {
 } from "@typegoose/typegoose";
 import mongoose from "mongoose";
 
-class Item {
+class ToolboxItem {
   @prop({ required: true })
   public url!: string;
 
   @prop({ required: true })
   public title!: string;
 
-  @prop({ required: true })
+  @prop({ required: true, type: () => [String] })
   public types!: string[];
 
   @prop({ required: true })
@@ -47,14 +47,14 @@ class Item {
 })
 @index({ title: 1 })
 class ToolboxClass {
-  @prop({ required: true, type: () => [Item] })
-  public site!: Item[];
+  @prop({ required: true, type: () => [ToolboxItem] })
+  public site: ToolboxItem[];
 
-  @prop({ required: true, type: () => [Item] })
-  public software!: Item[];
+  @prop({ required: true, type: () => [ToolboxItem] })
+  public software: ToolboxItem[];
 
-  @prop({ required: true, type: () => [Item] })
-  public tech_stack!: Item[];
+  @prop({ required: true, type: () => [ToolboxItem] })
+  public tech_stack: ToolboxItem[];
 
   _id: mongoose.Types.ObjectId | string;
 

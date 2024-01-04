@@ -1,10 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
-import ButtonLink from "./ProjectButtonLink";
+import ProjectButtonLink from "./ProjectButtonLink";
 import { customMetadata } from "../data/metadata";
 import CapstoneImage from "@/app/assets/images/projects_convenient_cannabis.png";
 import PortfolioImage from "@/app/assets/images/projects_portfolio_site.png";
 import PopoverLink from "../(components)/PopoverLink/PopoverLink";
+import { ButtonType } from "@/types/enums";
 
 export const metadata = {
   title: "Projects",
@@ -33,12 +34,18 @@ const Projects: React.FC = () => {
                 stack website created with a friend&apos;s cannabis dispensary
                 in mind.
               </p>
-              <ButtonLink
+              <ProjectButtonLink
+                buttonType={ButtonType.PRIMARY}
                 text="Visit Convenient Cannabis"
                 href={customMetadata.capstone}
               />
+               <ProjectButtonLink
+              buttonType={ButtonType.SECONDARY}
+              text="View Repo"
+              href={customMetadata.capstoneReadme}
+            />
             </div>
-            <div className="md:absolute md:top-4 md:right-[-200px] md:w-[800px] object-fill">
+            <div className="lg:absolute md:top-4 md:right-[-200px] md:w-[800px] object-fill xs:shrink-1">
               <Image
                 src={CapstoneImage}
                 placeholder="empty"
@@ -56,11 +63,11 @@ const Projects: React.FC = () => {
 
       <div className="relative w-full overflow-hidden border rounded-3xl bg-gradient-to-b from-purple-50 dark:from-purple-900/50 dark:to-fuchsia-700 to-fuchsia-300 dark:border-slate-700 border-slate-100">
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-fuchsia-300 dark:via-fuchsia-600 to-transparent"></div>
-        <div className="grid grid-cols-1 min-h-[500px] max-h-[500px] md:grid-cols-2">
-          <div className="md:max-w-[650px] max-h-[500px] relative md:ml-5">
+        <div className="grid grid-cols-1 min-h-[500px] md:max-h-[500px] md:grid-cols-2">
+          <div className="max-h-[500px] relative md:ml-5 flex justify-center items-center">
             <Image
-              layout="fill"
-              objectFit="contain"
+              width={1350}
+              height={1080}
               src={PortfolioImage}
               placeholder="empty"
               alt="Portfolio Site on tablet"
@@ -68,7 +75,8 @@ const Projects: React.FC = () => {
           </div>
           <div className="self-center order-first col-span-1 m-8 text-center md:order-last md:text-left">
             <h2 className="mt-0">Portfolio Site</h2>
-            <p>"
+            <p>
+              "
               <PopoverLink href="https://knowyourmeme.com/memes/xzibit-yo-dawg">
                 Yo dawg,
               </PopoverLink>{" "}
@@ -76,9 +84,15 @@ const Projects: React.FC = () => {
               included here, until I complete another project or two. Stay
               tuned!
             </p>
-            <ButtonLink
+            <ProjectButtonLink
+              buttonType={ButtonType.PRIMARY}
               text="Visit Portfolio Site"
               href={customMetadata.capstone}
+            />
+            <ProjectButtonLink
+              buttonType={ButtonType.SECONDARY}
+              text="View Repo"
+              href={customMetadata.portfolioReadme}
             />
           </div>
         </div>

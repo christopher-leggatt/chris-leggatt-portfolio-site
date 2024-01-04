@@ -1,5 +1,4 @@
 "use client";
-// Debug
 import PlausibleProvider from "next-plausible";
 import { ThemeProvider } from "next-themes";
 import { ModalProvider } from "@/contexts/ModalContext";

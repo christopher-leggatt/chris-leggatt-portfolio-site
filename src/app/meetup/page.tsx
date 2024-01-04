@@ -1,13 +1,25 @@
 import { customMetadata } from "../data/metadata";
 import { MeetupItem } from "./MeetupUtils";
 import { getMeetup } from "@/lib/meetup-db";
+import { mongoose } from "@typegoose/typegoose";
+
+interface MeetupItem {
+  name: string;
+  link: string;
+  checked: boolean;
+  _id: mongoose.Types.ObjectId | string;
+}
+
+interface MeetupProps {
+  meetup: MeetupItem[];
+}
 
 export const metadata = {
   title: "Meetup",
 };
 
 const Meetup = async () => {
-  const { meetup } = await getMeetup();
+  const { meetup } = (await getMeetup()) as MeetupProps;
   return (
     <>
       <h1>
@@ -19,9 +31,10 @@ const Meetup = async () => {
         </span>
       </h1>
       <p>
-        One can dream, right? The internet provides wonderful opportunities to be introduced to
-        amazing people. Here&apos;s a list of individuals I would love to meet
-        face to face! Want to meet up or be added to the list? Send me a{" "}
+        One can dream, right? The internet provides wonderful opportunities to
+        be introduced to amazing people. Here&apos;s a list of individuals I
+        would love to meet face to face! Want to meet up or be added to the
+        list? Send me a{" "}
         <a target="_blank" href={customMetadata.linkedin} rel="noreferrer">
           message on LinkedIn!
         </a>
@@ -30,15 +43,17 @@ const Meetup = async () => {
         <div className="col-span-12">
           <div className="mt-12">
             <div className="grid grid-cols-3">
-              {meetup!.map((item, index) => (
-                <MeetupItem
-                  key={index}
-                  id={`item-${index}`}
-                  name={item.name}
-                  link={item.link}
-                  checked={item.checked}
-                />
-              ))}
+              {meetup &&
+                meetup.length > 0 &&
+                meetup?.map((item, index) => (
+                  <MeetupItem
+                    key={index}
+                    id={`item-${index}`}
+                    name={item.name}
+                    link={item.link}
+                    checked={item.checked}
+                  />
+                ))}
             </div>
           </div>
         </div>

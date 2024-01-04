@@ -21,7 +21,7 @@ export const metadata = {
 };
 
 const Changelog = async () => {
-  const { changelog } = (await getChangelog()) as { changelog: ChangelogProps };
+  const { changelog } = (await getChangelog()) as { changelog?: ChangelogProps };
   return (
     <>
       <h1>
