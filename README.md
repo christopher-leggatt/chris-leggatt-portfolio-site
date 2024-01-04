@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chris Leggatt Portfolio Site
+
+This project is my personal portfolio website, showcasing skills, projects, and experiences. Built with Next.js, TypeScript, and MongoDB, it serves as a beginning of a professional online presence and a demonstration of web development capabilities.
 
 ## Getting Started
 
-First, run the development server:
+These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Before you begin, ensure you have the following installed:
+- Node.js (v20.x)
+- npm (or yarn)
+- MongoDB (or access to a MongoDB Atlas cluster)
+- Git/GitHub
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To get a development environment running:
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+`git clone https://github.com/christopher-leggatt/chris-leggatt-portfolio-site.git`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Navigate to the project directory:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`cd chris-leggatt-portfolio-site`
 
-## Deploy on Vercel
+3. Install dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`npm install`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Set up environment variables:
+- Rename env.example` to .env.local
+  -`mv .env.sample .env`
+- Update the variables to match your local setup
+  -NEXT_PUBLIC_BASE_URL=<your localhost>
+  -MONGODB_URI=<your database client>
+
+
+5. Run the development server:
+
+`npm run dev`
+
+## Built With
+
+* [Next.js](https://nextjs.org/) - The React framework used
+* [TypeScript](https://www.typescriptlang.org/) - Programming language
+* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - Database service
+
+## Authors
+
+* **Chris Leggatt**
+
+## Usage
+
+Free use for developers.
+
+## Acknowledgments
+
+* A huge thank you to everyone at BrainStation for providing me the tools, confidence and insight to bring me to this point.
+* A special thanks goes out to the BrainStation faculty:
+  *David Ashe
+  *Patricio Guerra
+  *Jim Bennett
+  *Cameron Makarchuk
+  *Jack Stasiulis
+* Big thanks to Wes Bos for continued excellence on his YouTube channel, as well as Dave Grey, whose tutorials have saved me on a number of occasions.
