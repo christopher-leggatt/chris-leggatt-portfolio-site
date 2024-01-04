@@ -46,11 +46,11 @@ const About = async () => {
         <PopoverLink href={customMetadata.codepen}>creative coder</PopoverLink>,
         transitioning from the world of automotive manufacturing and quality
         control. My journey has been driven by a lifelong passion for learning
-        and an innate ability to adapt and solve problems, a trait I've honed
-        due to my{" "}
+        and an innate ability to adapt and solve problems, a trait I've honed,
+        in part, due to my{" "}
         <PopoverLink href="https://en.wikipedia.org/wiki/Constriction_ring_syndrome">
           limb differences.
-        </PopoverLink>
+        </PopoverLink>{" "}
         These experiences have not just shaped my approach to challenges but
         also fueled my curiosity in technology.
       </p>
@@ -81,11 +81,11 @@ const About = async () => {
             online coding modules
           </PopoverLink>{" "}
           and began building my first projects. This exploration led me to
-          enroll in BrainStation's
+          enroll in BrainStation's{" "}
           <PopoverLink href="https://brainstation.io/online/software-engineering-bootcamp">
             Software Engineering
-          </PopoverLink>{" "}course
-          - one of the best decisions I've ever made.
+          </PopoverLink>{" "}
+          course - one of the best decisions I've ever made.
         </p>
         <p>
           The intensive program at BrainStation was a catalyst in my

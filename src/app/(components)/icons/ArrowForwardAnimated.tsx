@@ -1,7 +1,13 @@
-const ArrowForwardAnimated = () => {
+import { ButtonType } from "@/types/enums";
+
+const ArrowForwardAnimated = ({ buttonType }: { buttonType: ButtonType }) => {
   return (
     <svg
-      className={`mt-0.5 ml-2 -mr-1 stroke-2 stroke-white dark:stroke-midnight`}
+      className={
+        buttonType === ButtonType.PRIMARY
+          ? `mt-0.5 ml-2 -mr-1 stroke-2 stroke-white dark:stroke-midnight`
+          : `mt-0.5 ml-2 -mr-1 stroke-2 stroke-midnight dark:stroke-white`
+      }
       fill="none"
       width="10"
       height="10"

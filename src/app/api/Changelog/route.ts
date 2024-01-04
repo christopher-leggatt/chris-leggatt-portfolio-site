@@ -3,8 +3,6 @@ import { getChangelog } from "@/lib/changelog-db";
 import { NextResponse, NextRequest } from "next/server";
 import { createErrorResponse } from "@/lib/utils";
 
-export const dynamic = 'force-dynamic';
-
 export async function GET(req: NextRequest) {
   try {
     await connectDB();

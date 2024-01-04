@@ -1,6 +1,5 @@
 import { Meetup } from "@/models/Meetup";
 import connectDB from "./connect-db";
-import { stringToObjectId } from "./utils";
 
 export async function getMeetup() {
   try {
