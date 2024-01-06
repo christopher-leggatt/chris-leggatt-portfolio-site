@@ -9,7 +9,7 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || defaultBaseUrl;
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <PlausibleProvider domain={baseUrl} trackOutboundLinks={true}>
-      <ThemeProvider attribute="class">
+      <ThemeProvider defaultTheme="light" attribute="class">
         <ModalProvider>{children}</ModalProvider>
       </ThemeProvider>
     </PlausibleProvider>
