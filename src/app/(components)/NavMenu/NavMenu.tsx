@@ -16,7 +16,16 @@ const NavMenu = () => {
   let [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+
+    const localTheme = window.localStorage.getItem("theme");
+
+    if (localTheme) {
+      setTheme(localTheme);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="fixed z-50 w-full text-gray-900 bg-white bg-opacity-50 dark:bg-dark dark:text-gray-100 backdrop-filter backdrop-blur-lg dark:bg-opacity-50">
@@ -48,12 +57,17 @@ const NavMenu = () => {
             </span>
           </Link>
         </div>
-        <div className="-my-2 -mr-2 md:hidden" onClick={() => setIsOpen(true)}>
+        <button
+          className="-my-2 -mr-2 md:hidden"
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
           <div className="bg-gray-200 dark:bg-midnight text-gray-600 dark:text-gray-300 rounded-full p-3.5 inline-flex items-center justify-center hover:text-gray-700 hover:bg-gray-300 cursor-pointer focus:outline-none general-ring-state">
             <span className="sr-only">Open menu</span>
             <Hamburger />
           </div>
-        </div>
+        </button>
         <nav className="hidden space-x-8 text-lg md:flex">
           {linksArray.map((item, index) => {
             return <RenderNavLink key={index} item={item} isMobile={false} />;
@@ -65,9 +79,12 @@ const NavMenu = () => {
             aria-label="Toggle Dark Mode"
             type="button"
             className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full dark:bg-midnight general-ring-state"
-            onClick={() =>
-              setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
+            onClick={(e) => {
+              e.stopPropagation();
+              const newTheme = resolvedTheme === "dark" ? "light" : "dark";
+              setTheme(newTheme);
+              window.localStorage.setItem("theme", newTheme);
+            }}
           >
             {mounted && (
               <div>{resolvedTheme === "dark" ? <Sun /> : <Moon />}</div>
@@ -85,6 +102,10 @@ const NavMenu = () => {
           <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-gray-900/80" />
 
           <div className="fixed w-full max-w-xs p-6 text-base font-semibold text-gray-900 bg-white shadow-lg rounded-3xl top-4 right-4 dark:bg-gray-800 dark:text-gray-400 dark:highlight-white/5">
+            <Dialog.Title as="h2" className="sr-only">
+              Navigation Menu
+            </Dialog.Title>
+
             <button
               onClick={() => setIsOpen(false)}
               className="absolute flex items-center justify-center w-8 h-8 text-gray-500 top-5 right-5 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"
@@ -116,9 +137,12 @@ const NavMenu = () => {
                 aria-label="Toggle Dark Mode"
                 type="button"
                 className="flex items-center justify-center w-full py-3 bg-gray-200 rounded-full dark:bg-midnight-hover general-ring-state"
-                onClick={() =>
-                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
-                }
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const newTheme = resolvedTheme === "dark" ? "light" : "dark";
+                  setTheme(newTheme);
+                  window.localStorage.setItem("theme", newTheme);
+                }}
               >
                 {mounted && (
                   <>

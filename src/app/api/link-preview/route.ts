@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import mql from "@microlink/mql";
 import { createErrorResponse } from "@/lib/utils";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
     const { status, data } = await mql(
